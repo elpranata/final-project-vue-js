@@ -271,7 +271,6 @@ nav {
 .table-list-small {
     font-size: 13px;
     color: #999;
-
 }
 
 .table-list-small-title {
@@ -279,6 +278,27 @@ nav {
     color: #666;
     font-weight: bold;
     text-decoration: none;
+}
+
+.table-list-status {
+    background-color: #00d450;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 50px;
+    display: initial;
+    font-size: 11px;
+}
+
+.approved {
+    background-color: #00d450;
+}
+
+.pending {
+    background-color: #ffc107;
+}
+
+.rejected {
+    background-color: #ef144a;
 }
 
 .mar-1 {
