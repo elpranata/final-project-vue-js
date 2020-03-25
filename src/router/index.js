@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Applicant from '../views/Applicant.vue'
+import Employee from '../views/Employee.vue'
 
 Vue.use(VueRouter)
 
@@ -20,6 +21,11 @@ const routes = [{
     path: '/applicant',
     name: 'Applicant',
     component: Applicant
+  },
+  {
+    path: '/employee',
+    name: 'Employee',
+    component: Employee
   },
   {
     path: '/about',
