@@ -1,0 +1,55 @@
+Final Project VUE.js
+
+## Minimum requirements:
+### Employee
+1. Employee list.
+2. Add new employee manually (including image).
+3. Update employee data (including image).
+4. Remove employee.
+5. Filter and search employee.
+7. Employee be able to leave of absence request (LoA).
+8. Employer and HRD be able to approve or reject employee request.
+9. Employee be able to clock in and clock out.  
+10. Employee Attendance.
+10. Calendar/Events CRUD.
+11. Export employees data as CSV on current filter/search.
+12. Export all employees data as CSV.
+13. Pagination.
+### Job Applicants
+1. Applicant list
+2. Add new applicant manually
+3. Update applicant data
+4. Remove applicant
+5. Set applicant status to unprocessed, psycho test, interview, and finish. When finish, make him/her as employee.
+6. Applicant should be able to submit their own data such as name, email, phone, CV (pdf file).
+
+
+
+
+
+
+
+Tugas Akhir VUE.js
+
+## Persyaratan minimum:
+### Karyawan
+1. Daftar karyawan.
+2. Tambahkan karyawan baru secara manual (termasuk gambar).
+3. Perbarui data karyawan (termasuk gambar).
+4. Keluarkan karyawan.
+5. Saring dan cari karyawan.
+7. Karyawan dapat meninggalkan permintaan absen (LoA).
+8. Majikan dan HRD dapat menyetujui atau menolak permintaan karyawan.
+9. Karyawan dapat masuk dan keluar.
+10. Kehadiran Karyawan.
+10. Kalender / Acara CRUD.
+11. Ekspor data karyawan sebagai CSV pada filter / pencarian saat ini.
+12. Ekspor semua data karyawan sebagai CSV.
+13. Pagination.
+### Pelamar kerja
+1. Daftar pemohon
+2. Tambahkan pelamar baru secara manual
+3. Perbarui data pemohon
+4. Hapus pemohon
+5. Tetapkan status pemohon untuk tidak diproses, tes psiko, wawancara, dan selesai. Saat selesai, jadikan sebagai karyawan.
+6. Pemohon harus dapat mengirimkan data mereka sendiri seperti nama, email, telepon, CV (file pdf).
