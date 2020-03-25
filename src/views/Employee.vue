@@ -7,17 +7,17 @@
             <li class="logo">
               <a href="#">HR</a>
             </li>
-            <li class="nav-btn">
-              <a href="dashboard.html">DASHBOARD</a>
-            </li>
             <li class="nav-btn active">
-              <a href="employees.html">EMPLOYEES</a>
+              <router-link to="/dashboard">DASHBOARD</router-link>
+            </li>
+            <li class="nav-btn">
+              <router-link to="/employee">EMPLOYEES</router-link>
             </li>
             <li class="nav-btn">
               <a href="attendance.html">ATTENDANCE</a>
             </li>
             <li class="nav-btn">
-              <a href="applicants.html">APPLICANTS</a>
+              <router-link to="/applicant">APPLICANTS</router-link>
             </li>
             <li class="nav-btn">
               <a href="request.html">LEAVE REQUEST</a>
