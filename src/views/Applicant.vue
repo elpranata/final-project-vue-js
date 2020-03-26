@@ -74,100 +74,41 @@
               <li class="menu-box">
                 <a href="#">Scheduled to Interview</a>
               </li>
-            </div>
-
-            <div class="box-table">
-              <table class="table no-border">
-                <tr class="no-border">
-                  <td class="table-list">
-                    <div class="table-inner">
-                      <input type="text" placeholder="Type to search" class="textbox" />
-                      <button class="textbox-btn">Search</button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="table-list">
-                    <div class="table-list-inner">
-                      <div class="table-list-thumb">
-                        <a href="#" class>
-                          <img
-                            src="https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
-                            alt
-                            class="img-thumb"
-                          />
-                        </a>
+              <div class="box-table">
+                <div class="no-border table-inner">
+                  <input type="text" placeholder="Type to search" class="textbox" />
+                  <button class="textbox-btn">Search</button>
+                </div>
+                <table class="table no-border" v-for="p in applicantList" :key="p.id">
+                  <tr>
+                    <td class="table-list">
+                      <div class="table-list-inner">
+                        <div class="table-list-thumb">
+                          <a href="#" class>
+                            <img
+                              src="https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
+                              alt
+                              class="img-thumb"
+                            />
+                          </a>
+                        </div>
+                        <div class="mar-1">
+                          <a href="#" class="table-list-small-title">{{p.name}}</a>
+                          <div class="table-list-small">{{p.email}}</div>
+                          <div class="table-list-small">{{p.phone_number}}</div>
+                        </div>
                       </div>
-                      <div class="mar-1">
-                        <a href="#" class="table-list-small-title">Sebastian Ingrosso</a>
-                        <div class="table-list-small">exe@example.com</div>
-                        <div class="table-list-small">081234567</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="table-list">
-                    <div class="table-list-small-title">Manager</div>
-                    <div class="table-list-small">Research and Development</div>
-                  </td>
-                  <td class="table-list">
-                    <a href="#" class="textbox-btn-2">Edit</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="table-list">
-                    <div class="table-list-inner">
-                      <div class="table-list-thumb">
-                        <a href="#" class>
-                          <img
-                            src="https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
-                            alt
-                            class="img-thumb"
-                          />
-                        </a>
-                      </div>
-                      <div class="mar-1">
-                        <a href="#" class="table-list-small-title">Sebastian Ingrosso</a>
-                        <div class="table-list-small">exe@example.com</div>
-                        <div class="table-list-small">081234567</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="table-list">
-                    <div class="table-list-small-title">Manager</div>
-                    <div class="table-list-small">Research and Development</div>
-                  </td>
-                  <td class="table-list">
-                    <a href="#" class="textbox-btn-2">Edit</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="table-list">
-                    <div class="table-list-inner">
-                      <div class="table-list-thumb">
-                        <a href="#" class>
-                          <img
-                            src="https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
-                            alt
-                            class="img-thumb"
-                          />
-                        </a>
-                      </div>
-                      <div class="mar-1">
-                        <a href="#" class="table-list-small-title">Sebastian Ingrosso</a>
-                        <div class="table-list-small">exe@example.com</div>
-                        <div class="table-list-small">081234567</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="table-list">
-                    <div class="table-list-small-title">Manager</div>
-                    <div class="table-list-small">Research and Development</div>
-                  </td>
-                  <td class="table-list">
-                    <a href="#" class="textbox-btn-2">Edit</a>
-                  </td>
-                </tr>
-              </table>
+                    </td>
+                    <td class="table-list">
+                      <div class="table-list-small-title">Manager</div>
+                      <div class="table-list-small">Research and Development</div>
+                    </td>
+                    <td class="table-list">
+                      <a href="#" class="textbox-btn-2">Edit</a>
+                    </td>
+                  </tr>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -177,7 +118,20 @@
 </template>
 
 <script>
-export default {};
+import axios from "axios";
+export default {
+  data() {
+    return {
+      applicantList: [],
+      products: []
+    };
+  },
+  mounted() {
+    axios
+      .get("http://localhost:3000/job_applicant")
+      .then(response => (this.applicantList = response.data));
+  }
+};
 </script>
 
 <style>
@@ -463,7 +417,7 @@ nav {
 }
 
 .mar-1 {
-  margin-left: 1rem;
+  margin-left: 2rem;
 }
 
 .table-inner {
