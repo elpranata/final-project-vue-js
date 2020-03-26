@@ -66,7 +66,8 @@
           <div class="box">
             <div class="box-title">
               <li class="menu-box active-2">
-                <a href="#">Unprocessed</a>
+                <v-btn @click="filtered()">Unprocessed</v-btn>
+                <!-- <a href="#" >Unprocessed</a> -->
               </li>
               <li class="menu-box">
                 <a href="#">Scheduled to Psycho Test</a>
@@ -130,6 +131,13 @@ export default {
     axios
       .get("http://localhost:3000/job_applicant")
       .then(response => (this.applicantList = response.data));
+  },
+  methods: {
+    filtered() {
+      return this.applicantList.filter(
+        item => item.applicant_status === "unprocessed"
+      );
+    }
   }
 };
 </script>
