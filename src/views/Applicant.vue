@@ -66,15 +66,25 @@
           <div class="box">
             <div class="box-title">
               <li class="menu-box active-2">
-                <v-btn @click="filtered()">Unprocessed</v-btn>
+                <v-btn
+                  v-for="(entry, index) in filterList"
+                  :item="entry"
+                  :key="index"
+                  @click="
+                    filter = entry;
+                    active = index;
+                  "
+                  :class="{ active: entry == filter }"
+                >{{ entry }}</v-btn>
+                <!-- <v-btn @click="filtered()">Unprocessed</v-btn> -->
                 <!-- <a href="#" >Unprocessed</a> -->
               </li>
-              <li class="menu-box">
+              <!-- <li class="menu-box">
                 <a href="#">Scheduled to Psycho Test</a>
               </li>
               <li class="menu-box">
                 <a href="#">Scheduled to Interview</a>
-              </li>
+              </li>-->
               <div class="box-table">
                 <div class="no-border table-inner">
                   <input type="text" placeholder="Type to search" class="textbox" />
@@ -124,7 +134,15 @@ export default {
   data() {
     return {
       applicantList: [],
-      products: []
+      products: [],
+      fkey: "mainApplicant",
+      filterList: [
+        "All",
+        "Unprocessed",
+        "Scheduled to Psycho Test",
+        "Scheduled to Interview"
+      ],
+      filter: "All"
     };
   },
   mounted() {
