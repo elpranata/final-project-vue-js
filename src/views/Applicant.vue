@@ -74,17 +74,10 @@
                     filter = entry;
                     active = index;
                   "
+                  class="red--text"
                   :class="{ active: entry == filter }"
                 >{{ entry }}</v-btn>
-                <!-- <v-btn @click="filtered()">Unprocessed</v-btn> -->
-                <!-- <a href="#" >Unprocessed</a> -->
               </li>
-              <!-- <li class="menu-box">
-                <a href="#">Scheduled to Psycho Test</a>
-              </li>
-              <li class="menu-box">
-                <a href="#">Scheduled to Interview</a>
-              </li>-->
               <div class="box-table">
                 <div class="no-border table-inner">
                   <input type="text" placeholder="Type to search" class="textbox" />
