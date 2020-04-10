@@ -1,124 +1,44 @@
 <template>
-  <div class="container">
-    <header>
-      <div class="container-header">
-        <nav>
-          <ul class="nav-menu">
-            <li class="logo">
-              <a href="#">HR</a>
-            </li>
-            <li class="nav-btn active">
-              <router-link to="/dashboard">DASHBOARD</router-link>
-            </li>
-            <li class="nav-btn">
-              <router-link to="/employee">EMPLOYEES</router-link>
-            </li>
-            <li class="nav-btn">
-              <a href="attendance.html">ATTENDANCE</a>
-            </li>
-            <li class="nav-btn">
-              <router-link to="/applicant">APPLICANTS</router-link>
-            </li>
-            <li class="nav-btn">
-              <a href="request.html">LEAVE REQUEST</a>
-            </li>
-            <li class="nav-btn">
-              <a href="broadcast.html">BROADCAST</a>
-            </li>
-          </ul>
-
-          <ul class="nav-menu-right">
-            <li class="nav-btn-user">
-              <span>
-                <i class="icon-bell pad-6"></i>Hi, Admin
-              </span>
-            </li>
-            <li class="nav-btn">
-              <a href="#">LOGOUT</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <div class="main">
-      <div class="menu">
-        <ul class="menu-list">
-          <div class="menu-title">Applicant List</div>
-        </ul>
-        <ul class="menu-list-right">
-          <li class="menu-btn">
-            <a href="#">Export CSV</a>
+  <v-container>
+    <div class="header">
+      <nav class="container-header">
+        <ul class="nav-menu">
+          <li class="logo">
+            <a href="#">HR</a>
           </li>
-          <li class="menu-btn">
-            <a href="#">Export CSV (All)</a>
+          <li class="nav-btn active">
+            <router-link to="/dashboard">DASHBOARD</router-link>
           </li>
-          <li class="menu-btn">
-            <a href="#">Import CSV</a>
+          <li class="nav-btn">
+            <router-link to="/employee">EMPLOYEES</router-link>
           </li>
-          <li class="menu-btn">
-            <a href="#">Add Applicant</a>
+          <li class="nav-btn">
+            <a href="attendance.html">ATTENDANCE</a>
+          </li>
+          <li class="nav-btn">
+            <router-link to="/applicant">APPLICANTS</router-link>
+          </li>
+          <li class="nav-btn">
+            <a href="request.html">LEAVE REQUEST</a>
+          </li>
+          <li class="nav-btn">
+            <a href="broadcast.html">BROADCAST</a>
           </li>
         </ul>
-      </div>
-      <div class="wrapper-col">
-        <div class="col-big">
-          <div class="box">
-            <div class="box-title">
-              <li class="menu-box active-2">
-                <v-btn
-                  v-for="(entry, index) in filterList"
-                  :item="entry"
-                  :key="index"
-                  @click="
-                    filter = entry;
-                    active = index;
-                  "
-                  class="red--text"
-                  :class="{ active: entry == filter }"
-                >{{ entry }}</v-btn>
-              </li>
-              <div class="box-table">
-                <div class="no-border table-inner">
-                  <input type="text" placeholder="Type to search" class="textbox" />
-                  <button class="textbox-btn">Search</button>
-                </div>
-                <table class="table no-border" v-for="p in applicantList" :key="p.id">
-                  <tr>
-                    <td class="table-list">
-                      <div class="table-list-inner">
-                        <div class="table-list-thumb">
-                          <a href="#" class>
-                            <img
-                              src="https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
-                              alt
-                              class="img-thumb"
-                            />
-                          </a>
-                        </div>
-                        <div class="mar-1">
-                          <a href="#" class="table-list-small-title">{{p.name}}</a>
-                          <div class="table-list-small">{{p.email}}</div>
-                          <div class="table-list-small">{{p.phone_number}}</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="table-list">
-                      <div class="table-list-small-title">Manager</div>
-                      <div class="table-list-small">Research and Development</div>
-                    </td>
-                    <td class="table-list">
-                      <a href="#" class="textbox-btn-2">Edit</a>
-                    </td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+        <ul class="nav-menu-right">
+          <li class="nav-btn-user">
+            <span>
+              <i class="icon-bell pad-6"></i>Hi, Admin
+            </span>
+          </li>
+          <li class="nav-btn">
+            <a href="#">LOGOUT</a>
+          </li>
+        </ul>
+      </nav>
     </div>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -144,10 +64,14 @@ export default {
       .then(response => (this.applicantList = response.data));
   },
   methods: {
-    filtered() {
-      return this.applicantList.filter(
-        item => item.applicant_status === "unprocessed"
-      );
+    resultsFilter(entry) {
+      if (this.filter !== "All") {
+        if (entry.category === this.filter) {
+          return entry;
+        }
+      } else {
+        return entry;
+      }
     }
   }
 };
@@ -165,13 +89,6 @@ img {
   height: auto;
 }
 
-header {
-  position: sticky;
-  background: #fff;
-  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
-  z-index: 9;
-}
-
 ul {
   padding-left: 0;
   list-style: none;
@@ -185,6 +102,13 @@ nav {
   max-width: 1024px;
   margin: auto;
   display: flex;
+}
+
+.header {
+  position: sticky;
+  background: #fff;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  z-index: 9;
 }
 
 .container {
