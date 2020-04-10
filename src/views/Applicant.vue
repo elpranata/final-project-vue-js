@@ -38,6 +38,16 @@
         </ul>
       </nav>
     </div>
+    <br />
+    <div class="menu">
+      <h3>Applicant List</h3>
+      <div class="menu-list-right">
+        <v-btn small color="error" class="mx-2">Export CSV All</v-btn>
+        <v-btn small color="error" class="mx-2">Export CSV</v-btn>
+        <v-btn small color="error" class="mx-2">Import CSV</v-btn>
+        <v-btn small color="error" class="mx-2">Add Applicant</v-btn>
+      </div>
+    </div>
   </v-container>
 </template>
 
@@ -373,30 +383,30 @@ nav {
   border-radius: 100%;
 }
 
-.menu {
+/* .menu {
   display: flex;
   padding: 0 20px;
-}
+} */
 
 .menu-title {
   font-size: 23px;
   font-weight: bold;
   letter-spacing: 2px;
-  color: #fff;
+  color: #000;
 }
 
-.menu-list {
+/* .menu-list {
   margin: auto;
   flex-grow: 1;
-  padding: 15px 0;
-}
+  padding: 5px 0;
+} */
 
 .menu-list-right {
-  margin: auto;
+  margin-right: 30px;
   /* flex-grow: 1; */
-  padding: 15px 0;
-  flex-grow: initial;
-  line-height: 2.5;
+  /* padding: 150px 0; */
+  /* flex-grow: initial;
+  line-height: 2.5; */
 }
 
 .menu-btn {
