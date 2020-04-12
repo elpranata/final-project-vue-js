@@ -218,6 +218,24 @@
             "phone_numnber": "088822341532",
             "cv_file": "cv_oliver.pdf",
             "applicant_status": "finish"
+        },
+        {
+            "id": 4,
+            "submit_date": "2020-04-14 07:33:00",
+            "name": "Sara Lance",
+            "email": "lance.sara@gmail.com",
+            "phone_numnber": "081284449213",
+            "cv_file": "cv_sara.pdf",
+            "applicant_status": "finish"
+        },
+        {
+            "id": 5,
+            "submit_date": "2020-04-14 07:33:00",
+            "name": "Oh Soo-Ah",
+            "email": "soo_ah@gmail.com",
+            "phone_numnber": "081284449213",
+            "cv_file": "cv_sooah.pdf",
+            "applicant_status": "Psycho Test"
         }
     ]
 }

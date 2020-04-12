@@ -39,15 +39,50 @@
       </nav>
     </div>
     <br />
-    <div class="menu">
-      <h3>Applicant List</h3>
+    <h3>Applicant List</h3>
+    <v-row class="justify-center">
       <div class="menu-list-right">
         <v-btn small color="error" class="mx-2">Export CSV All</v-btn>
         <v-btn small color="error" class="mx-2">Export CSV</v-btn>
         <v-btn small color="error" class="mx-2">Import CSV</v-btn>
         <v-btn small color="error" class="mx-2">Add Applicant</v-btn>
       </div>
-    </div>
+    </v-row>
+
+    <v-row class="justify-center">
+      <li class="menu-box active-2">
+        <a href="#">Permanent</a>
+      </li>
+      <li class="menu-box">
+        <a href="#">Export CSV (All)</a>
+      </li>
+      <li class="menu-box">
+        <a href="#">Import CSV</a>
+      </li>
+    </v-row>
+    <v-layout row wrap>
+      <v-flex xs12 sm6 md4 lg3 v-for="(entry,id) in applicantList" :item="entry" :key="id">
+        <v-card flat class="text-xs-center justify-center">
+          <v-responsive class="pt-4">
+            <v-avatar size="100" class="grey lighten-2">
+              <img src="https://image.flaticon.com/icons/png/512/912/912214.png" />
+            </v-avatar>
+          </v-responsive>
+          <v-card-text>
+            <div class="subheading font-weight-bold">{{entry.name}}</div>
+            <div class="subheading font-weight-bold">{{entry.email}}</div>
+            <div class="grey--text">{{entry.applicant_status}}</div>
+          </v-card-text>
+          <v-card-actions>
+            <!-- <v-flex class="text-center"> -->
+            <v-btn flat color="grey" @click="addItem(entry)">
+              <span>Process</span>
+            </v-btn>
+            <!-- </v-flex> -->
+          </v-card-actions>
+        </v-card>
+      </v-flex>
+    </v-layout>
   </v-container>
 </template>
 
@@ -68,7 +103,7 @@ export default {
       filter: "All"
     };
   },
-  mounted() {
+  created() {
     axios
       .get("http://localhost:3000/job_applicant")
       .then(response => (this.applicantList = response.data));
