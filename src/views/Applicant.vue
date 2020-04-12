@@ -1,121 +1,51 @@
 <template>
-  <div class="container">
-    <header>
-      <div class="container-header">
-        <nav>
-          <ul class="nav-menu">
-            <li class="logo">
-              <a href="#">HR</a>
-            </li>
-            <li class="nav-btn active">
-              <router-link to="/dashboard">DASHBOARD</router-link>
-            </li>
-            <li class="nav-btn">
-              <router-link to="/employee">EMPLOYEES</router-link>
-            </li>
-            <li class="nav-btn">
-              <a href="attendance.html">ATTENDANCE</a>
-            </li>
-            <li class="nav-btn">
-              <router-link to="/applicant">APPLICANTS</router-link>
-            </li>
-            <li class="nav-btn">
-              <a href="request.html">LEAVE REQUEST</a>
-            </li>
-            <li class="nav-btn">
-              <a href="broadcast.html">BROADCAST</a>
-            </li>
-          </ul>
+  <v-container>
+    <br />
+    <h3>Applicant List</h3>
+    <v-row class="justify-center">
+      <div class="menu-list-right">
+        <v-btn small color="error" class="mx-2">Export CSV All</v-btn>
+        <v-btn small color="error" class="mx-2">Export CSV</v-btn>
+        <v-btn small color="error" class="mx-2">Import CSV</v-btn>
+        <v-btn small color="error" class="mx-2">Add Applicant</v-btn>
+      </div>
+    </v-row>
 
-          <ul class="nav-menu-right">
-            <li class="nav-btn-user">
-              <span>
-                <i class="icon-bell pad-6"></i>Hi, Admin
-              </span>
-            </li>
-            <li class="nav-btn">
-              <a href="#">LOGOUT</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <div class="main">
-      <div class="menu">
-        <ul class="menu-list">
-          <div class="menu-title">Applicant List</div>
-        </ul>
-        <ul class="menu-list-right">
-          <li class="menu-btn">
-            <a href="#">Export CSV</a>
-          </li>
-          <li class="menu-btn">
-            <a href="#">Export CSV (All)</a>
-          </li>
-          <li class="menu-btn">
-            <a href="#">Import CSV</a>
-          </li>
-          <li class="menu-btn">
-            <a href="#">Add Applicant</a>
-          </li>
-        </ul>
-      </div>
-      <div class="wrapper-col">
-        <div class="col-big">
-          <div class="box">
-            <div class="box-title">
-              <li class="menu-box active-2">
-                <v-btn @click="filtered()">Unprocessed</v-btn>
-                <!-- <a href="#" >Unprocessed</a> -->
-              </li>
-              <li class="menu-box">
-                <a href="#">Scheduled to Psycho Test</a>
-              </li>
-              <li class="menu-box">
-                <a href="#">Scheduled to Interview</a>
-              </li>
-              <div class="box-table">
-                <div class="no-border table-inner">
-                  <input type="text" placeholder="Type to search" class="textbox" />
-                  <button class="textbox-btn">Search</button>
-                </div>
-                <table class="table no-border" v-for="p in applicantList" :key="p.id">
-                  <tr>
-                    <td class="table-list">
-                      <div class="table-list-inner">
-                        <div class="table-list-thumb">
-                          <a href="#" class>
-                            <img
-                              src="https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
-                              alt
-                              class="img-thumb"
-                            />
-                          </a>
-                        </div>
-                        <div class="mar-1">
-                          <a href="#" class="table-list-small-title">{{p.name}}</a>
-                          <div class="table-list-small">{{p.email}}</div>
-                          <div class="table-list-small">{{p.phone_number}}</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="table-list">
-                      <div class="table-list-small-title">Manager</div>
-                      <div class="table-list-small">Research and Development</div>
-                    </td>
-                    <td class="table-list">
-                      <a href="#" class="textbox-btn-2">Edit</a>
-                    </td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <v-row class="justify-center">
+      <li class="menu-box active-2">
+        <a href="#">Permanent</a>
+      </li>
+      <li class="menu-box">
+        <a href="#">Export CSV (All)</a>
+      </li>
+      <li class="menu-box">
+        <a href="#">Import CSV</a>
+      </li>
+    </v-row>
+    <v-layout row wrap>
+      <v-flex xs12 sm6 md4 lg3 v-for="(entry,id) in applicantList" :item="entry" :key="id">
+        <v-card flat class="text-xs-center justify-center">
+          <v-responsive class="pt-4">
+            <v-avatar size="100" class="grey lighten-2">
+              <img src="https://image.flaticon.com/icons/png/512/912/912214.png" />
+            </v-avatar>
+          </v-responsive>
+          <v-card-text>
+            <div class="subheading font-weight-bold">{{entry.name}}</div>
+            <div class="subheading font-weight-bold">{{entry.email}}</div>
+            <div class="grey--text">{{entry.applicant_status}}</div>
+          </v-card-text>
+          <v-card-actions>
+            <!-- <v-flex class="text-center"> -->
+            <v-btn flat color="grey" @click="addItem(entry)">
+              <span>Process</span>
+            </v-btn>
+            <!-- </v-flex> -->
+          </v-card-actions>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
@@ -124,19 +54,31 @@ export default {
   data() {
     return {
       applicantList: [],
-      products: []
+      products: [],
+      fkey: "mainApplicant",
+      filterList: [
+        "All",
+        "Unprocessed",
+        "Scheduled to Psycho Test",
+        "Scheduled to Interview"
+      ],
+      filter: "All"
     };
   },
-  mounted() {
+  created() {
     axios
       .get("http://localhost:3000/job_applicant")
       .then(response => (this.applicantList = response.data));
   },
   methods: {
-    filtered() {
-      return this.applicantList.filter(
-        item => item.applicant_status === "unprocessed"
-      );
+    resultsFilter(entry) {
+      if (this.filter !== "All") {
+        if (entry.category === this.filter) {
+          return entry;
+        }
+      } else {
+        return entry;
+      }
     }
   }
 };
@@ -154,13 +96,6 @@ img {
   height: auto;
 }
 
-header {
-  position: sticky;
-  background: #fff;
-  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
-  z-index: 9;
-}
-
 ul {
   padding-left: 0;
   list-style: none;
@@ -174,6 +109,13 @@ nav {
   max-width: 1024px;
   margin: auto;
   display: flex;
+}
+
+.header {
+  position: sticky;
+  background: #fff;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  z-index: 9;
 }
 
 .container {
@@ -215,9 +157,8 @@ nav {
 }
 
 .nav-menu-right {
-  margin: auto;
+  /* margin: auto; */
   /* flex-grow: 1; */
-  padding: 15px 0;
   flex-grow: initial;
   line-height: 3;
 }
@@ -233,7 +174,7 @@ nav {
 
 .nav-btn {
   font-size: 10px;
-  padding: 10px 15px;
+  padding: 5px 5px;
   border-radius: 10px;
   border: 0;
   cursor: pointer;
@@ -438,30 +379,30 @@ nav {
   border-radius: 100%;
 }
 
-.menu {
+/* .menu {
   display: flex;
   padding: 0 20px;
-}
+} */
 
 .menu-title {
   font-size: 23px;
   font-weight: bold;
   letter-spacing: 2px;
-  color: #fff;
+  color: #000;
 }
 
-.menu-list {
+/* .menu-list {
   margin: auto;
   flex-grow: 1;
-  padding: 15px 0;
-}
+  padding: 5px 0;
+} */
 
 .menu-list-right {
-  margin: auto;
+  margin-right: 30px;
   /* flex-grow: 1; */
-  padding: 15px 0;
-  flex-grow: initial;
-  line-height: 2.5;
+  /* padding: 150px 0; */
+  /* flex-grow: initial;
+  line-height: 2.5; */
 }
 
 .menu-btn {
