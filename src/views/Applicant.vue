@@ -24,9 +24,6 @@
           <li class="nav-btn">
             <a href="broadcast.html">BROADCAST</a>
           </li>
-        </ul>
-
-        <ul class="nav-menu-right">
           <li class="nav-btn-user">
             <span>
               <i class="icon-bell pad-6"></i>Hi, Admin
@@ -195,9 +192,8 @@ nav {
 }
 
 .nav-menu-right {
-  margin: auto;
+  /* margin: auto; */
   /* flex-grow: 1; */
-  padding: 15px 0;
   flex-grow: initial;
   line-height: 3;
 }
@@ -213,7 +209,7 @@ nav {
 
 .nav-btn {
   font-size: 10px;
-  padding: 10px 15px;
+  padding: 5px 5px;
   border-radius: 10px;
   border: 0;
   cursor: pointer;
