@@ -1,40 +1,5 @@
 <template>
   <v-container>
-    <div class="header">
-      <nav class="container-header">
-        <ul class="nav-menu">
-          <li class="logo">
-            <a href="#">HR</a>
-          </li>
-          <li class="nav-btn active">
-            <router-link to="/dashboard">DASHBOARD</router-link>
-          </li>
-          <li class="nav-btn">
-            <router-link to="/employee">EMPLOYEES</router-link>
-          </li>
-          <li class="nav-btn">
-            <a href="attendance.html">ATTENDANCE</a>
-          </li>
-          <li class="nav-btn">
-            <router-link to="/applicant">APPLICANTS</router-link>
-          </li>
-          <li class="nav-btn">
-            <a href="request.html">LEAVE REQUEST</a>
-          </li>
-          <li class="nav-btn">
-            <a href="broadcast.html">BROADCAST</a>
-          </li>
-          <li class="nav-btn-user">
-            <span>
-              <i class="icon-bell pad-6"></i>Hi, Admin
-            </span>
-          </li>
-          <li class="nav-btn">
-            <a href="#">LOGOUT</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
     <br />
     <h3>Applicant List</h3>
     <v-row class="justify-center">

@@ -1,46 +1,5 @@
 <template>
   <div class="container">
-    <header>
-      <div class="container-header">
-        <nav>
-          <ul class="nav-menu">
-            <li class="logo">
-              <a href="#">HR</a>
-            </li>
-            <li class="nav-btn active">
-              <router-link to="/dashboard">DASHBOARD</router-link>
-            </li>
-            <li class="nav-btn">
-              <router-link to="/employee">EMPLOYEES</router-link>
-            </li>
-            <li class="nav-btn">
-              <a href="attendance.html">ATTENDANCE</a>
-            </li>
-            <li class="nav-btn">
-              <router-link to="/applicant">APPLICANTS</router-link>
-            </li>
-            <li class="nav-btn">
-              <a href="request.html">LEAVE REQUEST</a>
-            </li>
-            <li class="nav-btn">
-              <a href="broadcast.html">BROADCAST</a>
-            </li>
-          </ul>
-
-          <ul class="nav-menu-right">
-            <li class="nav-btn-user">
-              <span>
-                <i class="icon-bell pad-6"></i>Hi, Admin
-              </span>
-            </li>
-            <li class="nav-btn">
-              <a href="about-us.html">LOGOUT</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
     <div class="main">
       <div class="wrapper-col">
         <div class="col">
