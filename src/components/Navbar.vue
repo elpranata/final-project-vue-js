@@ -29,7 +29,7 @@
           </span>
         </li>
         <li class="nav-btn">
-          <a href="#">LOGOUT</a>
+          <router-link to="/">LOGOUT</router-link>
         </li>
       </ul>
     </nav>

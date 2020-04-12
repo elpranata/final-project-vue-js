@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Navbar v-if="$route.name!='login'" />
+    <Navbar v-if="$route.name!='Login'" />
     <v-content>
       <router-view></router-view>
     </v-content>
