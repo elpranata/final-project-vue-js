@@ -4,6 +4,9 @@ import Login from '../views/Login.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Applicant from '../views/Applicant.vue'
 import Employee from '../views/Employee.vue'
+import Attendance from '../views/Attendance.vue'
+import Broadcast from '../views/Broadcast.vue'
+import LeaveRequest from '../views/LeaveRequest.vue'
 
 Vue.use(VueRouter)
 
@@ -26,6 +29,21 @@ const routes = [{
     path: '/employee',
     name: 'Employee',
     component: Employee
+  },
+  {
+    path: '/attendance',
+    name: 'Attendance',
+    component: Attendance
+  },
+  {
+    path: '/broadcast',
+    name: 'Broadcast',
+    component: Broadcast
+  },
+  {
+    path: '/leave-request',
+    name: 'LeaveRequest',
+    component: LeaveRequest
   },
   {
     path: '/about',
