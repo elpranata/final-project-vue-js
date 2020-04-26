@@ -1,53 +1,50 @@
 <template>
   <v-container>
-    <div class="header">
-      <nav class="container-header">
-        <ul class="nav-menu">
-          <li class="logo">
-            <a href="#">HR</a>
-          </li>
-          <li class="nav-btn active">
-            <router-link to="/dashboard">DASHBOARD</router-link>
-          </li>
-          <li class="nav-btn">
-            <router-link to="/employee">EMPLOYEES</router-link>
-          </li>
-          <li class="nav-btn">
-            <a href="attendance.html">ATTENDANCE</a>
-          </li>
-          <li class="nav-btn">
-            <router-link to="/applicant">APPLICANTS</router-link>
-          </li>
-          <li class="nav-btn">
-            <a href="request.html">LEAVE REQUEST</a>
-          </li>
-          <li class="nav-btn">
-            <a href="broadcast.html">BROADCAST</a>
-          </li>
-        </ul>
-
-        <ul class="nav-menu-right">
-          <li class="nav-btn-user">
-            <span>
-              <i class="icon-bell pad-6"></i>Hi, Admin
-            </span>
-          </li>
-          <li class="nav-btn">
-            <a href="#">LOGOUT</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
     <br />
-    <div class="menu">
-      <h3>Applicant List</h3>
+    <h3>Applicant List</h3>
+    <v-row class="justify-center">
       <div class="menu-list-right">
         <v-btn small color="error" class="mx-2">Export CSV All</v-btn>
         <v-btn small color="error" class="mx-2">Export CSV</v-btn>
         <v-btn small color="error" class="mx-2">Import CSV</v-btn>
         <v-btn small color="error" class="mx-2">Add Applicant</v-btn>
       </div>
-    </div>
+    </v-row>
+
+    <v-row class="justify-center">
+      <li class="menu-box active-2">
+        <a href="#">Permanent</a>
+      </li>
+      <li class="menu-box">
+        <a href="#">Export CSV (All)</a>
+      </li>
+      <li class="menu-box">
+        <a href="#">Import CSV</a>
+      </li>
+    </v-row>
+    <v-layout row wrap>
+      <v-flex xs12 sm6 md4 lg3 v-for="(entry,id) in applicantList" :item="entry" :key="id">
+        <v-card flat class="text-xs-center justify-center">
+          <v-responsive class="pt-4">
+            <v-avatar size="100" class="grey lighten-2">
+              <img src="https://image.flaticon.com/icons/png/512/912/912214.png" />
+            </v-avatar>
+          </v-responsive>
+          <v-card-text>
+            <div class="subheading font-weight-bold">{{entry.name}}</div>
+            <div class="subheading font-weight-bold">{{entry.email}}</div>
+            <div class="grey--text">{{entry.applicant_status}}</div>
+          </v-card-text>
+          <v-card-actions>
+            <!-- <v-flex class="text-center"> -->
+            <v-btn flat color="grey" @click="addItem(entry)">
+              <span>Process</span>
+            </v-btn>
+            <!-- </v-flex> -->
+          </v-card-actions>
+        </v-card>
+      </v-flex>
+    </v-layout>
   </v-container>
 </template>
 
@@ -68,7 +65,7 @@ export default {
       filter: "All"
     };
   },
-  mounted() {
+  created() {
     axios
       .get("http://localhost:3000/job_applicant")
       .then(response => (this.applicantList = response.data));
@@ -160,9 +157,8 @@ nav {
 }
 
 .nav-menu-right {
-  margin: auto;
+  /* margin: auto; */
   /* flex-grow: 1; */
-  padding: 15px 0;
   flex-grow: initial;
   line-height: 3;
 }
@@ -178,7 +174,7 @@ nav {
 
 .nav-btn {
   font-size: 10px;
-  padding: 10px 15px;
+  padding: 5px 5px;
   border-radius: 10px;
   border: 0;
   cursor: pointer;
