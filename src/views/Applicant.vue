@@ -13,17 +13,17 @@
 
     <v-row class="justify-center">
       <li class="menu-box active-2">
-        <a href="#">Permanent</a>
+        <a href="#">Unprocessed</a>
       </li>
       <li class="menu-box">
-        <a href="#">Export CSV (All)</a>
+        <a href="#">Scheduled to Psycho Test</a>
       </li>
       <li class="menu-box">
-        <a href="#">Import CSV</a>
+        <a href="#">Scheduled to Interview</a>
       </li>
     </v-row>
     <v-layout row wrap>
-      <v-flex xs12 sm6 md4 lg3 v-for="(entry,id) in applicantList" :item="entry" :key="id">
+      <v-flex xs12 sm6 md4 lg3 v-for="(entry,id) in getDataApplicant" :item="entry" :key="id">
         <v-card flat class="text-xs-center justify-center">
           <v-responsive class="pt-4">
             <v-avatar size="100" class="grey lighten-2">
@@ -49,13 +49,15 @@
 </template>
 
 <script>
-import axios from "axios";
+import {mapGetters, mapActions} from 'vuex'
+// import axios from "axios";
 export default {
   data() {
     return {
       applicantList: [],
       products: [],
       fkey: "mainApplicant",
+      activeStatus:"finish",
       filterList: [
         "All",
         "Unprocessed",
@@ -65,21 +67,31 @@ export default {
       filter: "All"
     };
   },
-  created() {
-    axios
-      .get("http://localhost:3000/job_applicant")
-      .then(response => (this.applicantList = response.data));
+  computed:{
+    ...mapGetters({
+      getApplicant:'getApplicant'
+    }),
+     getDataApplicant() {
+      return this.getApplicant;
+    }
   },
   methods: {
-    resultsFilter(entry) {
-      if (this.filter !== "All") {
-        if (entry.category === this.filter) {
-          return entry;
-        }
-      } else {
-        return entry;
-      }
-    }
+    ...mapActions({
+        fetchApplicant:'fetchApplicant'
+    }),
+   
+    // resultsFilter(entry) {
+    //   if (this.filter !== "All") {
+    //     if (entry.category === this.filter) {
+    //       return entry;
+    //     }
+    //   } else {
+    //     return entry;
+    //   }
+    // }
+  },
+  created() {
+      this.fetchApplicant();
   }
 };
 </script>
