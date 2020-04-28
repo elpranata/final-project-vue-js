@@ -199,7 +199,7 @@
             "email": "barry.allen@gmail.com",
             "phone_numnber": "08576231111",
             "cv_file": "cv_barry.pdf",
-            "applicant_status": "unproccesed"
+            "applicant_status": "Unproccesed"
         },
         {
             "id": 2,
@@ -217,7 +217,7 @@
             "email": "oliver.queen@gmail.com",
             "phone_numnber": "088822341532",
             "cv_file": "cv_oliver.pdf",
-            "applicant_status": "finish"
+            "applicant_status": "Finish"
         },
         {
             "id": 4,
@@ -226,7 +226,7 @@
             "email": "lance.sara@gmail.com",
             "phone_numnber": "081284449213",
             "cv_file": "cv_sara.pdf",
-            "applicant_status": "finish"
+            "applicant_status": "Finished"
         },
         {
             "id": 5,
