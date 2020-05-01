@@ -12,16 +12,11 @@
     </v-row>
 
     <v-row class="justify-center">
-      <li class="menu-box active-2">
-        <a href="#">Unprocessed</a>
-      </li>
-      <li class="menu-box">
-        <a href="#">Scheduled to Psycho Test</a>
-      </li>
-      <li class="menu-box">
-        <a href="#">Scheduled to Interview</a>
-      </li>
+        <v-btn v-for="(item, key) in getDataApplicantStatus" :key="key" class="ma-2" color="primary" dark outlined  rounded @click="setActiveStatusA(item)">
+            {{item}}
+        </v-btn>
     </v-row>
+
     <v-layout row wrap>
       <v-flex xs12 sm6 md4 lg3 v-for="(entry,id) in getDataApplicant" :item="entry" :key="id">
         <v-card flat class="text-xs-center justify-center">
@@ -57,41 +52,30 @@ export default {
       applicantList: [],
       products: [],
       fkey: "mainApplicant",
-      activeStatus:"finish",
-      filterList: [
-        "All",
-        "Unprocessed",
-        "Scheduled to Psycho Test",
-        "Scheduled to Interview"
-      ],
-      filter: "All"
+      activeStatus:"Psychotest",
     };
   },
   computed:{
     ...mapGetters({
-      getApplicant:'getApplicant'
+      getApplicant:'getApplicant',
+      getApplicantStatus:'getApplicantStatus'
     }),
      getDataApplicant() {
       return this.getApplicant;
+    },
+    getDataApplicantStatus(){
+      return this.getApplicantStatus;
     }
   },
   methods: {
     ...mapActions({
-        fetchApplicant:'fetchApplicant'
+        fetchApplicant:'fetchApplicant',
+        fetchApplicantStatus:'fetchApplicantStatus'
     }),
-   
-    // resultsFilter(entry) {
-    //   if (this.filter !== "All") {
-    //     if (entry.category === this.filter) {
-    //       return entry;
-    //     }
-    //   } else {
-    //     return entry;
-    //   }
-    // }
   },
   created() {
       this.fetchApplicant();
+      this.fetchApplicantStatus();
   }
 };
 </script>

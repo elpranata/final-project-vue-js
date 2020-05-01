@@ -217,7 +217,7 @@
             "email": "oliver.queen@gmail.com",
             "phone_numnber": "088822341532",
             "cv_file": "cv_oliver.pdf",
-            "applicant_status": "Finish"
+            "applicant_status": "Finished"
         },
         {
             "id": 4,
@@ -237,5 +237,11 @@
             "cv_file": "cv_sooah.pdf",
             "applicant_status": "Psycho Test"
         }
-    ]
+    ],
+    "applicant_status": [
+        "Psychotest",
+        "Finished",
+        "Interview",
+        "Unprocessed"
+      ]
 }

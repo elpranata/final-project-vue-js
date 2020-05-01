@@ -7,12 +7,16 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state:{
-        applicant:[]
+        applicant:[],
+        applicantStatus:[]
     },
     getters:{
         getApplicant(state) {
             return state.applicant;
         },
+        getApplicantStatus(state){
+            return state.applicantStatus;
+        }
     },
     actions:{
          // fetch applicant data
@@ -23,11 +27,23 @@ export const store = new Vuex.Store({
                         commit ('fillApplicant', response.data)
                     } 
                 )
+        },
+        fetchApplicantStatus({commit}) {
+            console.log("applicant status")
+                axios.get('http://localhost:3000/applicant_status')
+                    .then(response => {
+                        commit ('fillApplicantStatus', response.data)
+                    } 
+                )
         }
+
     },
     mutations:{
         fillApplicant (state, payload) {
 			state.applicant = payload
+        },
+        fillApplicantStatus (state, payload) {
+			state.applicantStatus = payload
         },
     }
 });
