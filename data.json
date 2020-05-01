@@ -199,7 +199,7 @@
             "email": "barry.allen@gmail.com",
             "phone_numnber": "08576231111",
             "cv_file": "cv_barry.pdf",
-            "applicant_status": "Unproccesed"
+            "applicant_status": "Unprocessed"
         },
         {
             "id": 2,
@@ -208,7 +208,7 @@
             "email": "wells_harrison@gmail.com",
             "phone_numnber": "081991876542",
             "cv_file": "cv_harrison.pdf",
-            "applicant_status": "Psycho Test"
+            "applicant_status": "Psychotest"
         },
         {
             "id": 3,
@@ -235,7 +235,7 @@
             "email": "soo_ah@gmail.com",
             "phone_numnber": "081284449213",
             "cv_file": "cv_sooah.pdf",
-            "applicant_status": "Psycho Test"
+            "applicant_status": "Interview"
         }
     ],
     "applicant_status": [

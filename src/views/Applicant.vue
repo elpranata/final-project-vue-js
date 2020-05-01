@@ -12,7 +12,7 @@
     </v-row>
 
     <v-row class="justify-center">
-        <v-btn v-for="(item, key) in getDataApplicantStatus" :key="key" class="ma-2" color="primary" dark outlined  rounded @click="setActiveStatusA(item)">
+        <v-btn v-for="(item, key) in getDataApplicantStatus" :key="key" class="ma-2" color="primary" dark outlined  rounded @click="setActiveStatus(item)">
             {{item}}
         </v-btn>
     </v-row>
@@ -61,7 +61,7 @@ export default {
       getApplicantStatus:'getApplicantStatus'
     }),
      getDataApplicant() {
-      return this.getApplicant;
+      return this.getApplicant.filter(ob=>ob.applicant_status===this.activeStatus);
     },
     getDataApplicantStatus(){
       return this.getApplicantStatus;
@@ -72,6 +72,9 @@ export default {
         fetchApplicant:'fetchApplicant',
         fetchApplicantStatus:'fetchApplicantStatus'
     }),
+    setActiveStatus(item) {
+      this.activeStatus=item;
+    },
   },
   created() {
       this.fetchApplicant();
