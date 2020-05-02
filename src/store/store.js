@@ -8,7 +8,8 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
     state:{
         applicant:[],
-        applicantStatus:[]
+        applicantStatus:[],
+        department:[]
     },
     getters:{
         getApplicant(state) {
@@ -16,6 +17,9 @@ export const store = new Vuex.Store({
         },
         getApplicantStatus(state){
             return state.applicantStatus;
+        },
+        getDepartment(state){
+            return state.department;
         }
     },
     actions:{
@@ -35,6 +39,14 @@ export const store = new Vuex.Store({
                         commit ('fillApplicantStatus', response.data)
                     } 
                 )
+        },
+        fetchDepartment({commit}) {
+            console.log("applicant status")
+                axios.get('http://localhost:3000/department')
+                    .then(response => {
+                        commit ('fillDepartment', response.data)
+                    } 
+                )
         }
 
     },
@@ -45,5 +57,8 @@ export const store = new Vuex.Store({
         fillApplicantStatus (state, payload) {
 			state.applicantStatus = payload
         },
+        fillDepartment(state,payload){
+            state.department=payload
+        }
     }
 });

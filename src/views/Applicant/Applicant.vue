@@ -7,7 +7,9 @@
         <v-btn small color="error" class="mx-2">Export CSV All</v-btn>
         <v-btn small color="error" class="mx-2">Export CSV</v-btn>
         <v-btn small color="error" class="mx-2">Import CSV</v-btn>
-        <v-btn small color="error" class="mx-2">Add Applicant</v-btn>
+        <router-link to="/add-applicant">
+          <v-btn small color="error" class="mx-2">Add Applicant</v-btn>
+        </router-link>
       </div>
     </v-row>
 
