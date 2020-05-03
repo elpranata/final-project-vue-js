@@ -199,7 +199,7 @@
             "email": "barry.allen@gmail.com",
             "phone_numnber": "08576231111",
             "cv_file": "cv_barry.pdf",
-            "department" : "IT",
+            "department": "IT",
             "applicant_status": "Unprocessed"
         },
         {
@@ -209,7 +209,7 @@
             "email": "wells_harrison@gmail.com",
             "phone_numnber": "081991876542",
             "cv_file": "cv_harrison.pdf",
-            "department" : "Marketing",
+            "department": "Marketing",
             "applicant_status": "Psychotest"
         },
         {
@@ -219,7 +219,7 @@
             "email": "oliver.queen@gmail.com",
             "phone_numnber": "088822341532",
             "cv_file": "cv_oliver.pdf",
-            "department" : "Bussiness",
+            "department": "Bussiness",
             "applicant_status": "Finished"
         },
         {
@@ -229,7 +229,7 @@
             "email": "lance.sara@gmail.com",
             "phone_numnber": "081284449213",
             "cv_file": "cv_sara.pdf",
-            "department" : "Marketing",
+            "department": "Marketing",
             "applicant_status": "Finished"
         },
         {
@@ -239,8 +239,28 @@
             "email": "soo_ah@gmail.com",
             "phone_numnber": "081284449213",
             "cv_file": "cv_sooah.pdf",
-            "department" : "Marketing",
+            "department": "Marketing",
             "applicant_status": "Interview"
+        },
+        {
+            "id": 6,
+            "birth_date": "2020-05-04",
+            "name": "Indra Surya",
+            "email": "indra@gmail.com",
+            "phone_number": "081233445566",
+            "cv_file": "x.pdf",
+            "department": "IT",
+            "applicant_status": "Unprocessed"
+        },
+        {
+            "id": 7,
+            "birth_date": "2020-05-04",
+            "name": "Indra Surya",
+            "email": "x",
+            "phone_number": "x",
+            "cv_file": "x",
+            "department": "Marketing",
+            "applicant_status": "Unprocessed"
         }
     ],
     "applicant_status": [
@@ -248,11 +268,10 @@
         "Finished",
         "Interview",
         "Unprocessed"
-      ],
-      "department": [
+    ],
+    "department": [
         "IT",
         "Marketing",
         "Bussiness"
-      ]
-
+    ]
 }
