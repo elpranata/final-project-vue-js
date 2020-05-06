@@ -22,7 +22,8 @@
     <v-layout row wrap>
       <v-flex xs12 sm6 md4 lg3 v-for="(entry,id) in getDataApplicant" :item="entry" :key="id">
         <v-card flat class="text-xs-center justify-center">
-          <v-responsive class="pt-4">
+          <div>
+            <v-responsive class="pt-4">
             <v-avatar size="100" class="grey lighten-2">
               <img src="https://image.flaticon.com/icons/png/512/912/912214.png" />
             </v-avatar>
@@ -32,13 +33,18 @@
             <div class="subheading font-weight-bold">{{entry.email}}</div>
             <div class="grey--text">{{entry.applicant_status}}</div>
           </v-card-text>
-          <v-card-actions>
-            <!-- <v-flex class="text-center"> -->
-            <v-btn flat color="grey" @click="addItem(entry)">
-              <span>Process</span>
+          </div>
+
+           <v-card-actions>
+             <v-btn small flat color="green" @click="updateItem(entry)">
+              <span>Update</span>
             </v-btn>
-            <!-- </v-flex> -->
+              <v-btn small flat color="red" @click="deleteItem(entry)">
+              <span>Delete</span>
+            </v-btn>
           </v-card-actions>
+
+   
         </v-card>
       </v-flex>
     </v-layout>

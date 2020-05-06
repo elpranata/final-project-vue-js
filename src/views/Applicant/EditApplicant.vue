@@ -2,7 +2,7 @@
   <v-container full-width fluid>
     <v-flex full-width text-center>
       <v-row class="justify-center">
-        <h3>Add New Applicant</h3>
+        <h3>Edit Applicant</h3>
       </v-row>
       <div></div>
       <v-row class="justify-center">
@@ -45,7 +45,7 @@
             ></v-checkbox>
 
             <router-link to="/applicant">
-              <v-btn :disabled="!valid" color="success" class="mr-4 rounded" @click="add()">Add</v-btn>
+              <v-btn :disabled="!valid" color="success" class="mr-4 rounded" @click="edit()">Edit</v-btn>
             </router-link>
 
             <v-btn color="error" class="mr-4" @click="reset">Reset Form</v-btn>
@@ -87,12 +87,12 @@ export default {
     ...mapActions({
       fetchDepartment: "fetchDepartment"
     }),
-    add() {
+    edit() {
       if (this.form.data != null) {
         axios
-          .post("http://localhost:3000/job_applicant/", this.form)
+          .put("http://localhost:3000/job_applicant/ "+ this.$route.params.id , this.form)
           .then(res => {
-            alert("Succesfully Add New Applicant!");
+            alert("Succesfully Edit Applicant!");
             this.form.name = "";
             this.form.email = "";
             this.form.birth_date = "";
@@ -100,6 +100,8 @@ export default {
             this.form.cv_file = "";
             this.form.department = "";
             console.log(res);
+          }).catch((err) => {
+            console.log(err); 
           });
       } else {
         alert("Data is empty! Not adding anything");
