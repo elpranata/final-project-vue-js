@@ -43,7 +43,7 @@
           </div>
 
           <v-card-actions>
-            <v-dialog v-model="dialog" persistent max-width="600px">
+            <v-dialog v-model="dialog" persistent max-width="1000px">
               <template v-slot:activator="{ on }">
                 <v-btn small flat color="green" v-on="on">
                   <span>Update</span>
@@ -54,7 +54,37 @@
                 <v-card-title>
                   <span class="headline">Update Applicant</span>
                 </v-card-title>
-
+                <v-card-text>
+                  <v-container>
+                    <v-row>
+                      <v-form ref="form" v-model="valid" lazy-validation>
+                        <v-col cols="12">
+                          <v-text-field v-model="form.name" label="Name" required></v-text-field>
+                        </v-col>
+                        <v-col cols="12">
+                          <v-text-field v-model="form.email" label="E-mail" required></v-text-field>
+                        </v-col>
+                        <v-col cols="12">
+                          <v-text-field v-model="form.phone_number" label="Phone Number" required></v-text-field>
+                        </v-col>
+                        <v-col cols="12">
+                          <v-date-picker width="800px" v-model="form.birth_date"></v-date-picker>
+                        </v-col>
+                        <v-col cols="12">
+                          <v-text-field v-model="form.cv_file" label="CV File" required></v-text-field>
+                        </v-col>
+                        <v-col cols="12">
+                          <v-select
+                            v-model="form.department"
+                            label="Department"
+                            required
+                            :items="departmentList"
+                          ></v-select>
+                        </v-col>
+                      </v-form>
+                    </v-row>
+                  </v-container>
+                </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn color="blue darken-1" text @click="dialog = false">Close</v-btn>
@@ -79,17 +109,30 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
     return {
+      picker: new Date().toISOString().substr(0, 10),
       applicantList: [],
       products: [],
       fkey: "mainApplicant",
       activeStatus: "Psychotest",
-      dialog: false
+      dialog: false,
+      departmentList: ["IT", "Marketing", "Bussiness"],
+      form: {
+        id: "",
+        birth_date: "",
+        name: "",
+        email: "",
+        phone_number: "",
+        cv_file: "",
+        department: "",
+        applicant_status: "Unprocessed"
+      }
     };
   },
   computed: {
     ...mapGetters({
       getApplicant: "getApplicant",
-      getApplicantStatus: "getApplicantStatus"
+      getApplicantStatus: "getApplicantStatus",
+      getDepartment: "getDepartment"
     }),
     getDataApplicant() {
       return this.getApplicant.filter(
@@ -98,12 +141,16 @@ export default {
     },
     getDataApplicantStatus() {
       return this.getApplicantStatus;
+    },
+    getDataDepartment() {
+      return this.getDepartment;
     }
   },
   methods: {
     ...mapActions({
       fetchApplicant: "fetchApplicant",
-      fetchApplicantStatus: "fetchApplicantStatus"
+      fetchApplicantStatus: "fetchApplicantStatus",
+      fetchDepartment: "fetchDepartment"
     }),
     setActiveStatus(item) {
       this.activeStatus = item;
@@ -112,6 +159,7 @@ export default {
   created() {
     this.fetchApplicant();
     this.fetchApplicantStatus();
+    this.fetchDepartment();
   }
 };
 </script>

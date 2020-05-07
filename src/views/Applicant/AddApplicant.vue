@@ -8,13 +8,7 @@
       <v-row class="justify-center">
         <div style="width:80%">
           <v-form ref="form" v-model="valid" lazy-validation>
-            <v-text-field
-              v-model="form.name"
-              :counter="10"
-              :rules="nameRules"
-              label="Name"
-              required
-            ></v-text-field>
+            <v-text-field v-model="form.name" :rules="nameRules" label="Name" required></v-text-field>
 
             <div>
               <v-date-picker full-width v-model="form.birth_date"></v-date-picker>
@@ -104,7 +98,7 @@ export default {
       } else {
         alert("Data is empty! Not adding anything");
       }
-    },
+    }
   },
   created() {
     this.fetchDepartment();
