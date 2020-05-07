@@ -4,6 +4,7 @@ import Login from '../views/Login.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Applicant from '../views/Applicant/Applicant.vue'
 import AddApplicant from '../views/Applicant/AddApplicant.vue'
+import EditApplicant from '../views/Applicant/EditApplicant.vue'
 import Employee from '../views/Employee.vue'
 import Attendance from '../views/Attendance.vue'
 import Broadcast from '../views/Broadcast.vue'
@@ -30,6 +31,11 @@ const routes = [{
     path: '/add-applicant',
     name: 'AddApplicant',
     component: AddApplicant
+  },
+  {
+    path: '/edit-applicant',
+    name: 'EditApplicant',
+    component: EditApplicant
   },
   {
     path: '/employee',

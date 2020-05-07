@@ -14,9 +14,16 @@
     </v-row>
 
     <v-row class="justify-center">
-        <v-btn v-for="(item, key) in getDataApplicantStatus" :key="key" class="ma-2" color="primary" dark outlined  rounded @click="setActiveStatus(item)">
-            {{item}}
-        </v-btn>
+      <v-btn
+        v-for="(item, key) in getDataApplicantStatus"
+        :key="key"
+        class="ma-2"
+        color="primary"
+        dark
+        outlined
+        rounded
+        @click="setActiveStatus(item)"
+      >{{item}}</v-btn>
     </v-row>
 
     <v-layout row wrap>
@@ -24,27 +31,42 @@
         <v-card flat class="text-xs-center justify-center">
           <div>
             <v-responsive class="pt-4">
-            <v-avatar size="100" class="grey lighten-2">
-              <img src="https://image.flaticon.com/icons/png/512/912/912214.png" />
-            </v-avatar>
-          </v-responsive>
-          <v-card-text>
-            <div class="subheading font-weight-bold">{{entry.name}}</div>
-            <div class="subheading font-weight-bold">{{entry.email}}</div>
-            <div class="grey--text">{{entry.applicant_status}}</div>
-          </v-card-text>
+              <v-avatar size="100" class="grey lighten-2">
+                <img src="https://image.flaticon.com/icons/png/512/912/912214.png" />
+              </v-avatar>
+            </v-responsive>
+            <v-card-text>
+              <div class="subheading font-weight-bold">{{entry.name}}</div>
+              <div class="subheading font-weight-bold">{{entry.email}}</div>
+              <div class="grey--text">{{entry.applicant_status}}</div>
+            </v-card-text>
           </div>
 
-           <v-card-actions>
-             <v-btn small flat color="green" @click="updateItem(entry)">
-              <span>Update</span>
-            </v-btn>
-              <v-btn small flat color="red" @click="deleteItem(entry)">
+          <v-card-actions>
+            <v-dialog v-model="dialog" persistent max-width="600px">
+              <template v-slot:activator="{ on }">
+                <v-btn small flat color="green" v-on="on">
+                  <span>Update</span>
+                </v-btn>
+              </template>
+
+              <v-card>
+                <v-card-title>
+                  <span class="headline">Update Applicant</span>
+                </v-card-title>
+
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="blue darken-1" text @click="dialog = false">Close</v-btn>
+                  <v-btn color="blue darken-1" text @click="dialog = false">Save</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+
+            <v-btn small flat color="red" @click="deleteItem(entry)">
               <span>Delete</span>
             </v-btn>
           </v-card-actions>
-
-   
         </v-card>
       </v-flex>
     </v-layout>
@@ -52,7 +74,7 @@
 </template>
 
 <script>
-import {mapGetters, mapActions} from 'vuex'
+import { mapGetters, mapActions } from "vuex";
 // import axios from "axios";
 export default {
   data() {
@@ -60,33 +82,36 @@ export default {
       applicantList: [],
       products: [],
       fkey: "mainApplicant",
-      activeStatus:"Psychotest",
+      activeStatus: "Psychotest",
+      dialog: false
     };
   },
-  computed:{
+  computed: {
     ...mapGetters({
-      getApplicant:'getApplicant',
-      getApplicantStatus:'getApplicantStatus'
+      getApplicant: "getApplicant",
+      getApplicantStatus: "getApplicantStatus"
     }),
-     getDataApplicant() {
-      return this.getApplicant.filter(ob=>ob.applicant_status===this.activeStatus);
+    getDataApplicant() {
+      return this.getApplicant.filter(
+        ob => ob.applicant_status === this.activeStatus
+      );
     },
-    getDataApplicantStatus(){
+    getDataApplicantStatus() {
       return this.getApplicantStatus;
     }
   },
   methods: {
     ...mapActions({
-        fetchApplicant:'fetchApplicant',
-        fetchApplicantStatus:'fetchApplicantStatus'
+      fetchApplicant: "fetchApplicant",
+      fetchApplicantStatus: "fetchApplicantStatus"
     }),
     setActiveStatus(item) {
-      this.activeStatus=item;
-    },
+      this.activeStatus = item;
+    }
   },
   created() {
-      this.fetchApplicant();
-      this.fetchApplicantStatus();
+    this.fetchApplicant();
+    this.fetchApplicantStatus();
   }
 };
 </script>
