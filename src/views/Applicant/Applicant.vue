@@ -59,19 +59,19 @@
                     <v-row>
                       <v-form ref="form" v-model="valid" lazy-validation>
                         <v-col cols="12">
-                          <v-text-field v-model="form.name" label="Name" required></v-text-field>
+                          <v-text-field v-model="form.name" v-bind:label="entry.name" required></v-text-field>
                         </v-col>
                         <v-col cols="12">
-                          <v-text-field v-model="form.email" label="E-mail" required></v-text-field>
+                          <v-text-field v-model="form.email"  v-bind:label="entry.email"  required></v-text-field>
                         </v-col>
                         <v-col cols="12">
-                          <v-text-field v-model="form.phone_number" label="Phone Number" required></v-text-field>
+                          <v-text-field v-model="form.phone_number"  v-bind:label="entry.phone_number" required></v-text-field>
                         </v-col>
                         <v-col cols="12">
-                          <v-date-picker width="800px" v-model="form.birth_date"></v-date-picker>
+                          <v-date-picker width="800px" v-model="form.birth_date"  v-bind:label="entry.birth_date" ></v-date-picker>
                         </v-col>
                         <v-col cols="12">
-                          <v-text-field v-model="form.cv_file" label="CV File" required></v-text-field>
+                          <v-text-field v-model="form.cv_file"  v-bind:label="entry.cv_file" required></v-text-field>
                         </v-col>
                         <v-col cols="12">
                           <v-select
@@ -81,6 +81,14 @@
                             :items="departmentList"
                           ></v-select>
                         </v-col>
+                             <v-col cols="12">
+                          <v-select
+                            v-model="form.applicant_status"
+                            label="Status"
+                            required
+                            :items="getDataApplicantStatus"
+                          ></v-select>
+                        </v-col>
                       </v-form>
                     </v-row>
                   </v-container>
@@ -88,7 +96,7 @@
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn color="blue darken-1" text @click="dialog = false">Close</v-btn>
-                  <v-btn color="blue darken-1" text @click="dialog = false">Save</v-btn>
+                  <v-btn color="blue darken-1" text @click="update(entry)">Save</v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>
@@ -105,7 +113,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-// import axios from "axios";
+import axios from "axios";
 export default {
   data() {
     return {
@@ -154,6 +162,23 @@ export default {
     }),
     setActiveStatus(item) {
       this.activeStatus = item;
+    },
+    update(entry){
+       return axios.put('http://localhost:3000/job_applicant/' + entry.id , this.form).then(res => {
+           alert("Data Berhasil diupdate")
+           console.log(res);
+          }).catch((err) => {
+            console.log(err);
+            
+          })
+    },
+    deleteItem(entry){
+        return axios.delete('http://localhost:3000/job_applicant/' + entry.id).then(res => {
+           alert("Data Berhasil dihapus")
+           console.log(res);
+          }).catch((err) => {
+            console.log(err);
+          })
     }
   },
   created() {

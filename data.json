@@ -1,274 +1,273 @@
 {
-	"employee": [
-		{
-			"id": 1,
-			"name": "Elga Yuda Pranata",
-			"address": "Jl. Palmerah Selatan No.17",
-			"birth_date": "28-03-1994",
-			"birth_place": "Depok",
-			"email": "elgayuda@kompas.com",
-			"phone_number": "081234567890",
-			"emergency_contant": "089765432101",
-			"gender": "male",
-			"position": "Front End Engineer",
-			"department": "IT",
-			"image": "",
-			"information": "Front End Engineer"
-		},
-		{
-			"id": 2,
-			"name": "Bobby Pratama",
-			"address": "Jl. Palmerah Barat No.35",
-			"birth_date": "18-01-1997",
-			"birth_place": "Tasikmalaya",
-			"email": "bobby.pratama@kompas.com",
-			"phone_number": "082512347890",
-			"emergency_contant": "0081724673921",
-			"gender": "male",
-			"position": "Software Engineer",
-			"department": "IT",
-			"image": "",
-			"information": "Back End Engineer"
-		},
-		{
-			"id": 3,
-			"name": "Rifky Agasta Ibrahim",
-			"address": "Jl. Depok Barat No.112",
-			"birth_date": "28-09-1997",
-			"birth_place": "Depok",
-			"email": "rifky.agasta@kompas.com",
-			"phone_number": "085678921231",
-			"emergency_contant": "085387491023",
-			"gender": "male",
-			"position": "Software Engineer",
-			"department": "Marketing",
-			"image": "",
-			"information": "Back End Engineer"
-		},
-		{
-			"id": 4,
-			"name": "Deny Ramanda",
-			"address": "Jl. Sudirman No. 23",
-			"birth_date": "28-02-1996",
-			"birth_place": "Batam",
-			"email": "deny@kompas.com",
-			"phone_number": "081567218634",
-			"emergency_contant": "087812347677",
-			"gender": "male",
-			"position": "Front End Engineer",
-			"department": "Bussiness",
-			"image": "",
-			"information": "Front End Engineer"
-		},
-		{
-			"id": 5,
-			"name": "Fx Indra Kris",
-			"address": "Jl. Tanjung Duren No.17",
-			"birth_date": "28-03-1980",
-			"birth_place": "Semarang",
-			"email": "indra.kris@kompas.com",
-			"phone_number": "084178236631",
-			"emergency_contant": "089099776633",
-			"gender": "male",
-			"position": "Dev Ops Engineer",
-			"department": "IT Subcription",
-			"image": "",
-			"information": "Dev Ops Engineer"
-		}
-	],
-	"employee_atendance": [
-		{
-			"id": 1,
-			"id_employee": 2,
-			"clock_in": "2020-03-26 08:20:33",
-			"clock_out": "2020-03-26 18:20:33",
-			"information": ""
-		},
-		{
-			"id": 2,
-			"id_employee": 1,
-			"clock_in": "2020-03-26 08:00:00",
-			"clock_out": "2020-03-26 17:00:00",
-			"information": ""
-		},
-		{
-			"id": 3,
-			"id_employee": 3,
-			"clock_in": "2020-03-26 10:30:45",
-			"clock_out": "2020-03-26 21:20:00",
-			"information": ""
-		},
-		{
-			"id": 4,
-			"id_employee": 5,
-			"clock_in": "2020-03-26 09:37:22",
-			"clock_out": "2020-03-26 19:45:39",
-			"information": ""
-		},
-		{
-			"id": 5,
-			"id_employee": 4,
-			"clock_in": "2020-03-26 07:45:00",
-			"clock_out": "2020-03-26 17:06:27",
-			"information": ""
-		}
-	],
-	"leave_request": [
-		{
-			"id": 1,
-			"id_employee": 1,
-			"start_date": "2020-07-15",
-			"end_date": "2020-07-22",
-			"register_date": "2020-05-15 08:20:33",
-			"accepted_date": "2020-05-15 12:00:00",
-			"information": "cuti tahunan"
-		},
-		{
-			"id": 2,
-			"id_employee": 5,
-			"start_date": "2020-07-15",
-			"end_date": "2020-07-30",
-			"register_date": "2020-04-15 08:20:33",
-			"accepted_date": "2020-04-22 09:00:00",
-			"information": "cuti tahunan"
-		},
-		{
-			"id": 3,
-			"id_employee": 4,
-			"start_date": "2020-07-29",
-			"end_date": "2020-08-10",
-			"register_date": "2020-07-22 08:40:42",
-			"accepted_date": "2020-07-22 12:05:10",
-			"information": "keperluan keluarga"
-		}
-	],
-	"user": [
-		{
-			"id": 1,
-			"id_employee": 1,
-			"username": "elgayuda@kompas.com",
-			"password": "elga12345"
-		},
-		{
-			"id": 2,
-			"id_employee": 2,
-			"username": "bobby.pratama@kompas.com",
-			"password": "bobby12345"
-		},
-		{
-			"id": 3,
-			"id_employee": 3,
-			"username": "rifky.agasta@kompas.com",
-			"password": "gasta12345"
-		},
-		{
-			"id": 4,
-			"id_employee": 4,
-			"username": "deny@kompas.com",
-			"password": "deny12345"
-		},
-		{
-			"id": 5,
-			"id_employee": 5,
-			"username": "indra.kris@kompas.com",
-			"password": "indra12345"
-		}
-	],
-	"event": [
-		{
-			"id": 1,
-			"name": "Work From Home",
-			"description": "test",
-			"start_date": "2020-03-17",
-			"end_date": "2020-03-31"
-		},
-		{
-			"id": 2,
-			"name": "Libur Paskah",
-			"description": "Paskah 2020",
-			"start_date": "2020-04-17",
-			"end_date": "2020-04-22"
-		},
-		{
-			"id": 3,
-			"name": "Libur Lebaran",
-			"description": "Idul Fitri 2020",
-			"start_date": "2020-05-25",
-			"end_date": "2020-06-04"
-		}
-	],
-	"job_applicant": [
-		{
-			"id": 1,
-			"birth_date": "2020-03-26 07:45:00",
-			"name": "Barry Allen",
-			"email": "barry.allen@gmail.com",
-			"phone_numnber": "08576231111",
-			"cv_file": "cv_barry.pdf",
-			"department": "IT",
-			"applicant_status": "Unprocessed"
-		},
-		{
-			"id": 2,
-			"birth_date": "2020-03-22 13:45:00",
-			"name": "Harrison Wells",
-			"email": "wells_harrison@gmail.com",
-			"phone_numnber": "081991876542",
-			"cv_file": "cv_harrison.pdf",
-			"department": "Marketing",
-			"applicant_status": "Psychotest"
-		},
-		{
-			"id": 3,
-			"birth_date": "2020-04-14 07:33:00",
-			"name": "Oliver Queen",
-			"email": "oliver.queen@gmail.com",
-			"phone_numnber": "088822341532",
-			"cv_file": "cv_oliver.pdf",
-			"department": "Bussiness",
-			"applicant_status": "Finished"
-		},
-		{
-			"id": 4,
-			"birth_date": "2020-04-14 07:33:00",
-			"name": "Sara Lance",
-			"email": "lance.sara@gmail.com",
-			"phone_numnber": "081284449213",
-			"cv_file": "cv_sara.pdf",
-			"department": "Marketing",
-			"applicant_status": "Finished"
-		},
-		{
-			"id": 5,
-			"birth_date": "2020-04-14 07:33:00",
-			"name": "Oh Soo-Ah",
-			"email": "soo_ah@gmail.com",
-			"phone_numnber": "081284449213",
-			"cv_file": "cv_sooah.pdf",
-			"department": "Marketing",
-			"applicant_status": "Interview"
-		},
-		{
-			"id": 6,
-			"birth_date": "2020-05-04",
-			"name": "Indra Surya",
-			"email": "indra@gmail.com",
-			"phone_number": "081233445566",
-			"cv_file": "x.pdf",
-			"department": "IT",
-			"applicant_status": "Unprocessed"
-		},
-		{
-			"id": 7,
-			"birth_date": "2020-05-04",
-			"name": "Indra Surya",
-			"email": "x",
-			"phone_number": "x",
-			"cv_file": "x",
-			"department": "Marketing",
-			"applicant_status": "Unprocessed"
-		}
-	],
-	"applicant_status": [ "Psychotest", "Finished", "Interview", "Unprocessed" ],
-	"department": [ "IT", "Marketing", "Bussiness" ]
+  "employee": [
+    {
+      "id": 1,
+      "name": "Elga Yuda Pranata",
+      "address": "Jl. Palmerah Selatan No.17",
+      "birth_date": "28-03-1994",
+      "birth_place": "Depok",
+      "email": "elgayuda@kompas.com",
+      "phone_number": "081234567890",
+      "emergency_contant": "089765432101",
+      "gender": "male",
+      "position": "Front End Engineer",
+      "department": "IT",
+      "image": "",
+      "information": "Front End Engineer"
+    },
+    {
+      "id": 2,
+      "name": "Bobby Pratama",
+      "address": "Jl. Palmerah Barat No.35",
+      "birth_date": "18-01-1997",
+      "birth_place": "Tasikmalaya",
+      "email": "bobby.pratama@kompas.com",
+      "phone_number": "082512347890",
+      "emergency_contant": "0081724673921",
+      "gender": "male",
+      "position": "Software Engineer",
+      "department": "IT",
+      "image": "",
+      "information": "Back End Engineer"
+    },
+    {
+      "id": 3,
+      "name": "Rifky Agasta Ibrahim",
+      "address": "Jl. Depok Barat No.112",
+      "birth_date": "28-09-1997",
+      "birth_place": "Depok",
+      "email": "rifky.agasta@kompas.com",
+      "phone_number": "085678921231",
+      "emergency_contant": "085387491023",
+      "gender": "male",
+      "position": "Software Engineer",
+      "department": "Marketing",
+      "image": "",
+      "information": "Back End Engineer"
+    },
+    {
+      "id": 4,
+      "name": "Deny Ramanda",
+      "address": "Jl. Sudirman No. 23",
+      "birth_date": "28-02-1996",
+      "birth_place": "Batam",
+      "email": "deny@kompas.com",
+      "phone_number": "081567218634",
+      "emergency_contant": "087812347677",
+      "gender": "male",
+      "position": "Front End Engineer",
+      "department": "Bussiness",
+      "image": "",
+      "information": "Front End Engineer"
+    },
+    {
+      "id": 5,
+      "name": "Fx Indra Kris",
+      "address": "Jl. Tanjung Duren No.17",
+      "birth_date": "28-03-1980",
+      "birth_place": "Semarang",
+      "email": "indra.kris@kompas.com",
+      "phone_number": "084178236631",
+      "emergency_contant": "089099776633",
+      "gender": "male",
+      "position": "Dev Ops Engineer",
+      "department": "IT Subcription",
+      "image": "",
+      "information": "Dev Ops Engineer"
+    }
+  ],
+  "employee_atendance": [
+    {
+      "id": 1,
+      "id_employee": 2,
+      "clock_in": "2020-03-26 08:20:33",
+      "clock_out": "2020-03-26 18:20:33",
+      "information": ""
+    },
+    {
+      "id": 2,
+      "id_employee": 1,
+      "clock_in": "2020-03-26 08:00:00",
+      "clock_out": "2020-03-26 17:00:00",
+      "information": ""
+    },
+    {
+      "id": 3,
+      "id_employee": 3,
+      "clock_in": "2020-03-26 10:30:45",
+      "clock_out": "2020-03-26 21:20:00",
+      "information": ""
+    },
+    {
+      "id": 4,
+      "id_employee": 5,
+      "clock_in": "2020-03-26 09:37:22",
+      "clock_out": "2020-03-26 19:45:39",
+      "information": ""
+    },
+    {
+      "id": 5,
+      "id_employee": 4,
+      "clock_in": "2020-03-26 07:45:00",
+      "clock_out": "2020-03-26 17:06:27",
+      "information": ""
+    }
+  ],
+  "leave_request": [
+    {
+      "id": 1,
+      "id_employee": 1,
+      "start_date": "2020-07-15",
+      "end_date": "2020-07-22",
+      "register_date": "2020-05-15 08:20:33",
+      "accepted_date": "2020-05-15 12:00:00",
+      "information": "cuti tahunan"
+    },
+    {
+      "id": 2,
+      "id_employee": 5,
+      "start_date": "2020-07-15",
+      "end_date": "2020-07-30",
+      "register_date": "2020-04-15 08:20:33",
+      "accepted_date": "2020-04-22 09:00:00",
+      "information": "cuti tahunan"
+    },
+    {
+      "id": 3,
+      "id_employee": 4,
+      "start_date": "2020-07-29",
+      "end_date": "2020-08-10",
+      "register_date": "2020-07-22 08:40:42",
+      "accepted_date": "2020-07-22 12:05:10",
+      "information": "keperluan keluarga"
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "id_employee": 1,
+      "username": "elgayuda@kompas.com",
+      "password": "elga12345"
+    },
+    {
+      "id": 2,
+      "id_employee": 2,
+      "username": "bobby.pratama@kompas.com",
+      "password": "bobby12345"
+    },
+    {
+      "id": 3,
+      "id_employee": 3,
+      "username": "rifky.agasta@kompas.com",
+      "password": "gasta12345"
+    },
+    {
+      "id": 4,
+      "id_employee": 4,
+      "username": "deny@kompas.com",
+      "password": "deny12345"
+    },
+    {
+      "id": 5,
+      "id_employee": 5,
+      "username": "indra.kris@kompas.com",
+      "password": "indra12345"
+    }
+  ],
+  "event": [
+    {
+      "id": 1,
+      "name": "Work From Home",
+      "description": "test",
+      "start_date": "2020-03-17",
+      "end_date": "2020-03-31"
+    },
+    {
+      "id": 2,
+      "name": "Libur Paskah",
+      "description": "Paskah 2020",
+      "start_date": "2020-04-17",
+      "end_date": "2020-04-22"
+    },
+    {
+      "id": 3,
+      "name": "Libur Lebaran",
+      "description": "Idul Fitri 2020",
+      "start_date": "2020-05-25",
+      "end_date": "2020-06-04"
+    }
+  ],
+  "job_applicant": [
+    {
+      "id": 1,
+      "birth_date": "2020-03-26 07:45:00",
+      "name": "Barry Allen",
+      "email": "barry.allen@gmail.com",
+      "phone_number": "08576231111",
+      "cv_file": "cv_barry.pdf",
+      "department": "IT",
+      "applicant_status": "Unprocessed"
+    },
+    {
+      "id": 2,
+      "birth_date": "2020-04-14 07:34:00",
+      "name": "Lukman Hakim",
+      "email": "lukman@gmail.com",
+      "phone_number": "123441414221",
+      "cv_file": "cv.pdf",
+      "department": "IT",
+      "applicant_status": "Psychotest"
+    },
+    {
+      "id": 3,
+      "birth_date": "2020-04-14 07:33:00",
+      "name": "Oliver Queen",
+      "email": "oliver.queen@gmail.com",
+      "phone_number": "088822341532",
+      "cv_file": "cv_oliver.pdf",
+      "department": "Bussiness",
+      "applicant_status": "Finished"
+    },
+    {
+      "id": 5,
+      "birth_date": "2020-04-14 07:33:00",
+      "name": "Oh Soo-Ah",
+      "email": "soo_ah@gmail.com",
+      "phone_number": "081284449213",
+      "cv_file": "cv_sooah.pdf",
+      "department": "Marketing",
+      "applicant_status": "Interview"
+    },
+    {
+      "id": 6,
+      "birth_date": "2020-05-04",
+      "name": "Indra Surya",
+      "email": "indra@gmail.com",
+      "phone_number": "081233445566",
+      "cv_file": "x.pdf",
+      "department": "IT",
+      "applicant_status": "Unprocessed"
+    },
+    {
+      "id": 7,
+      "birth_date": "2020-05-04",
+      "name": "Indra Surya",
+      "email": "x",
+      "phone_number": "x",
+      "cv_file": "x",
+      "department": "Marketing",
+      "applicant_status": "Unprocessed"
+    }
+  ],
+  "applicant_status": [
+    "Psychotest",
+    "Finished",
+    "Interview",
+    "Unprocessed"
+  ],
+  "department": [
+    "IT",
+    "Marketing",
+    "Bussiness"
+  ]
 }
