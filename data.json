@@ -179,6 +179,7 @@
       "id": 1,
       "name": "Work From Home",
       "description": "test",
+      "location": "Unknown",
       "start_date": "2020-03-17",
       "end_date": "2020-03-31"
     },
@@ -186,6 +187,7 @@
       "id": 2,
       "name": "Libur Paskah",
       "description": "Paskah 2020",
+      "location": "Unknown",
       "start_date": "2020-04-17",
       "end_date": "2020-04-22"
     },
@@ -193,6 +195,7 @@
       "id": 3,
       "name": "Libur Lebaran",
       "description": "Idul Fitri 2020",
+      "location": "Unknown",
       "start_date": "2020-05-25",
       "end_date": "2020-06-04"
     }

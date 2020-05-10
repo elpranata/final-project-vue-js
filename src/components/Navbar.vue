@@ -21,6 +21,9 @@
           <router-link to="/leave-request">LEAVE REQUEST</router-link>
         </li>
         <li class="nav-btn">
+          <router-link to="/event">EVENT</router-link>
+        </li>
+        <li class="nav-btn">
           <router-link to="/broadcast">BROADCAST</router-link>
         </li>
         <li class="nav-btn-user">

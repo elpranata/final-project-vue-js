@@ -6,9 +6,10 @@ import Applicant from '../views/Applicant/Applicant.vue'
 import AddApplicant from '../views/Applicant/AddApplicant.vue'
 import EditApplicant from '../views/Applicant/EditApplicant.vue'
 import Employee from '../views/Employee.vue'
+import Event from '../views/Event/Event.vue';
 import Attendance from '../views/Attendance.vue'
 import Broadcast from '../views/Broadcast.vue'
-import LeaveRequest from '../views/LeaveRequest.vue'
+import LeaveRequest from '../views/LeaveRequest/LeaveRequest.vue'
 
 Vue.use(VueRouter)
 
@@ -56,6 +57,11 @@ const routes = [{
     path: '/leave-request',
     name: 'LeaveRequest',
     component: LeaveRequest
+  },
+  {
+    path: '/event',
+    name: 'Event',
+    component: Event
   },
   {
     path: '/about',
