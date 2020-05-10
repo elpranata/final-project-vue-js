@@ -9,7 +9,8 @@ export const store = new Vuex.Store({
     state:{
         applicant:[],
         applicantStatus:[],
-        department:[]
+        department:[],
+        eventList:[]
     },
     getters:{
         getApplicant(state) {
@@ -20,12 +21,15 @@ export const store = new Vuex.Store({
         },
         getDepartment(state){
             return state.department;
+        },
+        getEventList(state){
+            return state.eventList;
         }
     },
     actions:{
          // fetch applicant data
         fetchApplicant ({commit}) {
-            console.log("applicant")
+            console.log("Applicant Fetched")
                 axios.get('http://localhost:3000/job_applicant')
                     .then(response => {
                         commit ('fillApplicant', response.data)
@@ -33,7 +37,7 @@ export const store = new Vuex.Store({
                 )
         },
         fetchApplicantStatus({commit}) {
-            console.log("applicant status")
+            console.log("Applicant Status Fetched")
                 axios.get('http://localhost:3000/applicant_status')
                     .then(response => {
                         commit ('fillApplicantStatus', response.data)
@@ -41,10 +45,18 @@ export const store = new Vuex.Store({
                 )
         },
         fetchDepartment({commit}) {
-            console.log("applicant status")
+            console.log("Department Fetched")
                 axios.get('http://localhost:3000/department')
                     .then(response => {
                         commit ('fillDepartment', response.data)
+                    } 
+                )
+        },
+        fetchEventList({commit}) {
+            console.log("Event List Fetched")
+                axios.get('http://localhost:3000/event')
+                    .then(response => {
+                        commit ('fillEventList', response.data)
                     } 
                 )
         }
@@ -59,6 +71,9 @@ export const store = new Vuex.Store({
         },
         fillDepartment(state,payload){
             state.department=payload
+        },
+        fillEventList(state,payload){
+            state.eventList=payload
         }
     }
 });

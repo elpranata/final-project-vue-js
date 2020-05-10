@@ -176,25 +176,36 @@
   ],
   "event": [
     {
-      "id": 1,
-      "name": "Work From Home",
-      "description": "test",
-      "start_date": "2020-03-17",
-      "end_date": "2020-03-31"
-    },
-    {
-      "id": 2,
       "name": "Libur Paskah",
-      "description": "Paskah 2020",
+      "description": "Test",
+      "location": "Rumah",
       "start_date": "2020-04-17",
-      "end_date": "2020-04-22"
+      "end_date": "2020-04-19",
+      "id": 1
     },
     {
-      "id": 3,
+      "name": "Libur Mei",
+      "description": "Rumah",
+      "location": "Rumah",
+      "start_date": "2020-07-18",
+      "end_date": "2020-07-19",
+      "id": 2
+    },
+    {
       "name": "Libur Lebaran",
-      "description": "Idul Fitri 2020",
-      "start_date": "2020-05-25",
-      "end_date": "2020-06-04"
+      "description": "Idul Fitri",
+      "location": "Rumah",
+      "start_date": "2020-05-24",
+      "end_date": "2020-05-27",
+      "id": 3
+    },
+    {
+      "name": "Work From Home",
+      "description": "PSBB",
+      "location": "Home",
+      "start_date": "2020-03-01",
+      "end_date": "2020-06-02",
+      "id": 5
     }
   ],
   "job_applicant": [
