@@ -25,24 +25,23 @@
             <v-card-title>
               <span class="headline">{{ formTitle }}</span>
             </v-card-title>
-
             <v-card-text>
               <v-container>
                 <v-row>
                   <v-col cols="12" sm="6" md="4">
-                    <v-text-field v-model="form.name" required label="Name"></v-text-field>
+                    <v-text-field v-model="editedItem.name"  label="Name"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
-                    <v-text-field v-model="form.description" required label="Description"></v-text-field>
+                    <v-text-field v-model="editedItem.description"  label="Description"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
-                    <v-text-field v-model="form.location" required label="Location"></v-text-field>
+                    <v-text-field v-model="editedItem.location"  label="Location"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
-                    <v-text-field v-model="form.start_date" required  label="Start Date"></v-text-field>
+                    <v-text-field v-model="editedItem.start_date"   label="Start Date"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
-                    <v-text-field v-model="form.end_date" required label="End Date"></v-text-field>
+                    <v-text-field v-model="editedItem.end_date"  label="End Date"></v-text-field>
                   </v-col>
                 </v-row>
               </v-container>
@@ -50,8 +49,8 @@
 
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="dialog = false">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="add()">Save</v-btn>
+              <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
+              <v-btn color="blue darken-1" text @click="save">Save</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -105,11 +104,18 @@ export default {
       ],
       editedIndex: -1,
       editedItem: {
-        name: '',
-        calories: 0,
-        fat: 0,
-        carbs: 0,
-        protein: 0,
+        name: "",
+        description: "",
+        location: "",
+        start_date: "",
+        end_date: "",
+      },
+      defaultItem: {
+        name: "",
+        description: "",
+        location: "",
+        start_date: "",
+        end_date: "",
       },
    
     };
@@ -118,17 +124,31 @@ export default {
      ...mapGetters({
        getEventList:"getEventList"
      }),
-     getDataEventList(){
-       return this.getEventList;
-     }
+     formTitle () {
+        return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+      }
   },
+  watch: {
+      dialog (val) {
+        val || this.close()
+      },
+    },
   methods:{
       ...mapActions({
       fetchEventList: "fetchEventList",
     }),
-    add(){
-        axios
-          .post("http://localhost:3000/event/", this.form)
+    save(){
+      if(this.editedIndex > -1){
+          return axios.put('http://localhost:3000/event/' + this.editedIndex , this.editedItem).then(res => {
+           alert("Data Berhasil diupdate")
+           console.log(res);
+          }).catch((err) => {
+            console.log(err);
+            
+          })
+      }else{
+            axios
+          .post("http://localhost:3000/event/", this.editedItem)
           .then(res => {
             alert("Succesfully Add New Event!");
             this.form.name = "";
@@ -138,6 +158,21 @@ export default {
             this.form.location = "";
             console.log(res);
           });
+          
+      }
+    this.close()
+    },
+    close () {
+        this.dialog = false
+        this.$nextTick(() => {
+          this.editedItem = Object.assign({}, this.defaultItem)
+          this.editedIndex = -1
+        })
+      },
+       editItem(item){
+         this.editedIndex = item.id;
+         this.editedItem = Object.assign({}, item)
+         this.dialog = true
     },
      deleteItem(item){
         return axios.delete('http://localhost:3000/event/' + item.id).then(res => {
