@@ -38,7 +38,7 @@
             </div>
 
             <div class="box-table">
-              <table class="table no-border">
+              <v-simple-table class="table no-border">
                 <tr class="no-border">
                   <td class="table-list">
                     <div class="table-inner">
@@ -47,82 +47,32 @@
                   </div>
                   </td>
                 </tr>
-                <tr>
+                <tr v-for="item in getLeaveRequest" :key="item.id"  >
                   <td class="table-list">
                     <div class="table-list-inner">
                       <div class="table-list-thumb">
                         <a href="#" class=""><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="" class="img-thumb"></a>
                       </div>
                       <div class="mar-1">
-                        <a href="#" class="table-list-small-title">Sebastian Ingrosso</a>
-                        <div class="table-list-small">exe@example.com</div>
-                        <div class="table-list-small">081234567</div>
+                        <a href="#" class="table-list-small-title">{{item.employee_name}}</a>
+                        <div class="table-list-small">{{item.information}}</div>
+                        <div class="table-list-small">{{item.status}}</div>
                       </div>
                     </div>
                   </td>
                   <td class="table-list">
-                    <div class="table-list-small-title">Manager</div>
-                    <div class="table-list-small">Research and Development</div>
+                    <div class="table-list-small-title">{{item.position}}</div>
+                    <div class="table-list-small">{{item.department}}</div>
                   </td>
                   <td class="table-list">
-                    <div class="table-list-small">Leave at 20 June 2020</div>
-                    <div class="table-list-status approved">Approved</div>
+                    <div class="table-list-small">Leave at {{item.start_date}}</div>
+                    <div class="table-list-status">{{item.status}}</div>
                   </td>
                   <td class="table-list">
                     <a href="#" class="textbox-btn-2">Edit</a>
                   </td>
                 </tr>
-                <tr>
-                  <td class="table-list">
-                    <div class="table-list-inner">
-                      <div class="table-list-thumb">
-                        <a href="#" class=""><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="" class="img-thumb"></a>
-                      </div>
-                      <div class="mar-1">
-                        <a href="#" class="table-list-small-title">Sebastian Ingrosso</a>
-                        <div class="table-list-small">exe@example.com</div>
-                        <div class="table-list-small">081234567</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="table-list">
-                    <div class="table-list-small-title">Manager</div>
-                    <div class="table-list-small">Research and Development</div>
-                  </td>
-                  <td class="table-list">
-                    <div class="table-list-small">Leave at 20 June 2020</div>
-                    <div class="table-list-status pending">Pending</div>
-                  </td>
-                  <td class="table-list">
-                    <a href="#" class="textbox-btn-2">Edit</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="table-list">
-                    <div class="table-list-inner">
-                      <div class="table-list-thumb">
-                        <a href="#" class=""><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="" class="img-thumb"></a>
-                      </div>
-                      <div class="mar-1">
-                        <a href="#" class="table-list-small-title">Sebastian Ingrosso</a>
-                        <div class="table-list-small">exe@example.com</div>
-                        <div class="table-list-small">081234567</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="table-list">
-                    <div class="table-list-small-title">Manager</div>
-                    <div class="table-list-small">Research and Development</div>
-                  </td>
-                  <td class="table-list">
-                    <div class="table-list-small">Leave at 20 June 2020</div>
-                    <div class="table-list-status rejected">Rejected</div>
-                  </td>
-                  <td class="table-list">
-                    <a href="#" class="textbox-btn-2">Edit</a>
-                  </td>
-                </tr>
-              </table>
+              </v-simple-table>
             </div>
           </div>
         </div>
@@ -134,6 +84,30 @@
 </template>
 
 <script>
-export default {};
+import { mapGetters, mapActions } from "vuex";
+export default {
+     data() {
+      return {
+          dialog:false
+
+      }
+     },
+     computed:{
+       ...mapGetters({
+         getLeaveRequest:"getLeaveRequest"
+       }),
+       getDataLeaveRequest(){
+         return this.getLeaveRequest;
+       }
+     },
+     methods:{
+       ...mapActions({
+         fetchLeaveRequest:"fetchLeaveRequest"
+       })
+     },
+     created(){
+       this.fetchLeaveRequest();
+     }
+};
 </script>
 
