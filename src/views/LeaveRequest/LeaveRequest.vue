@@ -1,6 +1,5 @@
 <template>
-  <div class="section">
-    <div class="container">
+  <div class="container">
     <div class="main">
       <div class="menu">
         <ul class="menu-list">
@@ -24,22 +23,13 @@
         <div class="col-big">
           <div class="box">
             <div class="box-title">
-              <li class="menu-box active-2">
-                <a href="#">All</a>
-              </li>
-              <li class="menu-box">
-                <a href="#">Approved</a>
-              </li>
-              <li class="menu-box">
-                <a href="#">Pending</a>
-              </li>
-              <li class="menu-box">
-                <a href="#">Rejected</a>
+              <li v-for="(entry, key) in getRequestStatus" :key="key"  :item="entry"  @click="setActiveStatus(entry)" class="menu-box active-2">
+                <v-btn small>{{entry}}</v-btn>
               </li>
             </div>
 
             <div class="box-table">
-              <table class="table no-border">
+              <v-simple-table class="table no-border">
                 <tr class="no-border">
                   <td class="table-list">
                     <div class="table-inner">
@@ -48,93 +38,132 @@
                   </div>
                   </td>
                 </tr>
-                <tr>
+                <tr v-for="(entry,id) in getDataLeaveRequest" :item="entry" :key="id"  >
                   <td class="table-list">
                     <div class="table-list-inner">
                       <div class="table-list-thumb">
                         <a href="#" class=""><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="" class="img-thumb"></a>
                       </div>
                       <div class="mar-1">
-                        <a href="#" class="table-list-small-title">Sebastian Ingrosso</a>
-                        <div class="table-list-small">exe@example.com</div>
-                        <div class="table-list-small">081234567</div>
+                        <a href="#" class="table-list-small-title">{{entry.employee_name}}</a>
+                        <div class="table-list-small">{{entry.information}}</div>
+                        <div class="table-list-small">{{entry.status}}</div>
                       </div>
                     </div>
                   </td>
                   <td class="table-list">
-                    <div class="table-list-small-title">Manager</div>
-                    <div class="table-list-small">Research and Development</div>
+                    <div class="table-list-small-title">{{entry.position}}</div>
+                    <div class="table-list-small">{{entry.department}}</div>
                   </td>
                   <td class="table-list">
-                    <div class="table-list-small">Leave at 20 June 2020</div>
-                    <div class="table-list-status approved">Approved</div>
+                    <div class="table-list-small">Leave at {{entry.start_date}}</div>
+                    <div class="table-list-status">{{entry.status}}</div>
                   </td>
                   <td class="table-list">
-                    <a href="#" class="textbox-btn-2">Edit</a>
+                     <v-dialog v-model="dialog" persistent max-width="300px" max-height="300px">
+                     <template v-slot:activator="{ on }">
+                       <v-btn small v-on="on">Edit</v-btn>
+                     </template>
+                     <v-card height="50%">
+                       <v-card-title>
+                         <span class="headline">Edit Leave Request</span>
+                       </v-card-title>
+                       <v-card-text>
+                         <v-container>
+                           <v-row>
+                             <v-col cols="12" sm="12">
+                                    <v-select
+                                      :items="['Approved', 'Pending', 'Rejected']"
+                                      v-model="form.status"
+                                      label="Status"
+                                      required
+                                    ></v-select>
+                                </v-col>
+                           </v-row>
+                         </v-container>
+                       </v-card-text>
+                       <v-card-actions>
+                          <v-spacer></v-spacer>
+                          <v-btn color="blue darken-1" text @click="dialog = false">Close</v-btn>
+                          <v-btn color="blue darken-1" text @click="updateItem(entry)">Save</v-btn>
+                      </v-card-actions>
+                     </v-card>
+                     </v-dialog>
                   </td>
                 </tr>
-                <tr>
-                  <td class="table-list">
-                    <div class="table-list-inner">
-                      <div class="table-list-thumb">
-                        <a href="#" class=""><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="" class="img-thumb"></a>
-                      </div>
-                      <div class="mar-1">
-                        <a href="#" class="table-list-small-title">Sebastian Ingrosso</a>
-                        <div class="table-list-small">exe@example.com</div>
-                        <div class="table-list-small">081234567</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="table-list">
-                    <div class="table-list-small-title">Manager</div>
-                    <div class="table-list-small">Research and Development</div>
-                  </td>
-                  <td class="table-list">
-                    <div class="table-list-small">Leave at 20 June 2020</div>
-                    <div class="table-list-status pending">Pending</div>
-                  </td>
-                  <td class="table-list">
-                    <a href="#" class="textbox-btn-2">Edit</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="table-list">
-                    <div class="table-list-inner">
-                      <div class="table-list-thumb">
-                        <a href="#" class=""><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="" class="img-thumb"></a>
-                      </div>
-                      <div class="mar-1">
-                        <a href="#" class="table-list-small-title">Sebastian Ingrosso</a>
-                        <div class="table-list-small">exe@example.com</div>
-                        <div class="table-list-small">081234567</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="table-list">
-                    <div class="table-list-small-title">Manager</div>
-                    <div class="table-list-small">Research and Development</div>
-                  </td>
-                  <td class="table-list">
-                    <div class="table-list-small">Leave at 20 June 2020</div>
-                    <div class="table-list-status rejected">Rejected</div>
-                  </td>
-                  <td class="table-list">
-                    <a href="#" class="textbox-btn-2">Edit</a>
-                  </td>
-                </tr>
-              </table>
+              </v-simple-table>
             </div>
           </div>
         </div>
-      </div>
     </div>
-
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapGetters, mapActions } from "vuex";
+import axios from "axios";
+export default {
+     data() {
+      return {
+          dialog:false,
+          activeStatus:'Approved',
+          form: {
+              id:"",
+              employee_name: "",
+              position: "",
+              department: "",
+              start_date: "",
+              end_date: "",
+              accepted_date: "",
+              information: "",
+              status: ""
+          }
+      }
+     },
+     computed:{
+       ...mapGetters({
+         getLeaveRequest:"getLeaveRequest",
+         getRequestStatus:"getRequestStatus"
+       }),
+       getDataLeaveRequest(){
+         return this.getLeaveRequest.filter(
+           ob => ob.status === this.activeStatus
+         );
+       },
+       getDataRequestStatus(){
+         return this.getRequestStatus;
+       }
+     },
+     methods:{
+       ...mapActions({
+         fetchLeaveRequest:"fetchLeaveRequest",
+         fetchRequestStatus:"fetchRequestStatus"
+       }),
+       updateItem(entry){
+             this.form.employee_name = entry.employee_name
+             this.form.position = entry.position
+             this.form.department =entry.department
+             this.form.start_date = entry.start_date
+             this.form.end_date = entry.end_date
+             this.form.accepted_date = entry.accepted_date
+             this.form.information = entry.information
+            return axios.put('http://localhost:3000/leave_request/' + entry.id , this.form).then(res => {
+            alert("Data Berhasil diupdate")
+            console.log(res);
+            }).catch((err) => {
+              console.log(err);
+            })
+       },
+        setActiveStatus(item) {
+          this.activeStatus = item;
+          console.log(this.activeStatus);
+        },
+     },
+     created(){
+       this.fetchLeaveRequest();
+       this.fetchRequestStatus();
+     }
+};
 </script>
 

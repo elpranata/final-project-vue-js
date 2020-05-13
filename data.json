@@ -116,30 +116,36 @@
   "leave_request": [
     {
       "id": 1,
-      "id_employee": 1,
+      "employee_name": "Uzumaki Naruto",
+      "position": "Front End Engineer",
+      "department": "IT Subcription",
       "start_date": "2020-07-15",
       "end_date": "2020-07-22",
-      "register_date": "2020-05-15 08:20:33",
       "accepted_date": "2020-05-15 12:00:00",
-      "information": "cuti tahunan"
+      "information": "cuti tahunan",
+      "status": "Approved"
     },
     {
       "id": 2,
-      "id_employee": 5,
+      "employee_name": "Uciha Sasuke",
+      "position": "Back End Engineer",
+      "department": "IT Subcription",
       "start_date": "2020-07-15",
       "end_date": "2020-07-30",
-      "register_date": "2020-04-15 08:20:33",
       "accepted_date": "2020-04-22 09:00:00",
-      "information": "cuti tahunan"
+      "information": "cuti tahunan",
+      "status": "Pending"
     },
     {
       "id": 3,
-      "id_employee": 4,
-      "start_date": "2020-07-29",
-      "end_date": "2020-08-10",
-      "register_date": "2020-07-22 08:40:42",
-      "accepted_date": "2020-07-22 12:05:10",
-      "information": "keperluan keluarga"
+      "employee_name": "Uciha Itachi",
+      "position": "Back End Engineer",
+      "department": "IT Subcription",
+      "start_date": "2020-07-15",
+      "end_date": "2020-07-30",
+      "accepted_date": "2020-04-22 09:00:00",
+      "information": "cuti tahunan",
+      "status": "Rejected"
     }
   ],
   "user": [
@@ -280,5 +286,10 @@
     "IT",
     "Marketing",
     "Bussiness"
+  ],
+  "request_status": [
+    "Approved",
+    "Pending",
+    "Rejected"
   ]
 }

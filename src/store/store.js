@@ -10,7 +10,9 @@ export const store = new Vuex.Store({
         applicant:[],
         applicantStatus:[],
         department:[],
-        eventList:[]
+        eventList:[],
+        leaveRequest:[],
+        requestStatus:[]
     },
     getters:{
         getApplicant(state) {
@@ -24,6 +26,12 @@ export const store = new Vuex.Store({
         },
         getEventList(state){
             return state.eventList;
+        },
+        getLeaveRequest(state){
+            return state.leaveRequest;
+        },
+        getRequestStatus(state){
+            return state.requestStatus;
         }
     },
     actions:{
@@ -59,6 +67,22 @@ export const store = new Vuex.Store({
                         commit ('fillEventList', response.data)
                     } 
                 )
+        },
+        fetchLeaveRequest({commit}) {
+            console.log("Leave Request Fetched")
+                axios.get('http://localhost:3000/leave_request')
+                    .then(response => {
+                        commit ('fillLeaveRequest', response.data)
+                    } 
+                )
+        },
+        fetchRequestStatus({commit}) {
+            console.log("Request Status Fetched")
+                axios.get('http://localhost:3000/request_status')
+                    .then(response => {
+                        commit ('fillRequestStatus', response.data)
+                    } 
+                )
         }
 
     },
@@ -74,6 +98,12 @@ export const store = new Vuex.Store({
         },
         fillEventList(state,payload){
             state.eventList=payload
+        },
+        fillLeaveRequest(state,payload){
+            state.leaveRequest=payload
+        },
+        fillRequestStatus(state,payload){
+            state.requestStatus=payload
         }
     }
 });
