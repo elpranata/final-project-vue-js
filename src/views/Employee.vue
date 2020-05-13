@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+  <div class="section">
+    <div class="container">
     <div class="main">
       <div class="menu">
         <ul class="menu-list">
@@ -45,6 +46,7 @@
                     </div>
                   </td>
                 </tr>
+                
                 <tr>
                   <td class="table-list">
                     <div class="table-list-inner">
@@ -72,7 +74,9 @@
                     <a href="#" class="textbox-btn-2">Edit</a>
                   </td>
                 </tr>
-                <tr>
+
+
+                <!-- <tr>
                   <td class="table-list">
                     <div class="table-list-inner">
                       <div class="table-list-thumb">
@@ -85,53 +89,28 @@
                         </a>
                       </div>
                       <div class="mar-1">
-                        <a href="#" class="table-list-small-title">Sebastian Ingrosso</a>
-                        <div class="table-list-small">exe@example.com</div>
-                        <div class="table-list-small">081234567</div>
+                        <a href="#" class="table-list-small-title">{{ item.name }}</a>
+                        <div class="table-list-small">{{ item.email }}</div>
+                        <div class="table-list-small">{{ item.phone }}</div>
                       </div>
                     </div>
                   </td>
                   <td class="table-list">
-                    <div class="table-list-small-title">Manager</div>
-                    <div class="table-list-small">Research and Development</div>
+                    <div class="table-list-small-title">{{ getRoleJobPosition(item) }}</div>
+                    <div class="table-list-small">{{ getRoleJobDivition(item) }}</div>
                   </td>
                   <td class="table-list">
                     <a href="#" class="textbox-btn-2">Edit</a>
                   </td>
-                </tr>
-                <tr>
-                  <td class="table-list">
-                    <div class="table-list-inner">
-                      <div class="table-list-thumb">
-                        <a href="#" class>
-                          <img
-                            src="https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
-                            alt
-                            class="img-thumb"
-                          />
-                        </a>
-                      </div>
-                      <div class="mar-1">
-                        <a href="#" class="table-list-small-title">Sebastian Ingrosso</a>
-                        <div class="table-list-small">exe@example.com</div>
-                        <div class="table-list-small">081234567</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="table-list">
-                    <div class="table-list-small-title">Manager</div>
-                    <div class="table-list-small">Research and Development</div>
-                  </td>
-                  <td class="table-list">
-                    <a href="#" class="textbox-btn-2">Edit</a>
-                  </td>
-                </tr>
+                </tr> -->
+
               </table>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
 

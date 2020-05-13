@@ -1,12 +1,13 @@
 <template>
-  <div class="container">
+  <div class="section">
+    <div class="container">
     <div class="main">
       <div class="wrapper-col">
         <div class="col">
           <div class="box">
             <div class="box-title">Total Employees</div>
-            <div class="box-text">439</div>
-            <div class="box-desc">230 males / 209 females</div>
+            <div class="box-text">000</div>
+            <div class="box-desc">00 males / 00 females</div>
           </div>
         </div>
 
@@ -40,15 +41,14 @@
                 class="img-thumb"
               />
             </div>
-            <div class="box-desc">5 people</div>
+            <div class="box-desc">0 people</div>
           </div>
         </div>
 
         <div class="col">
           <div class="box">
             <div class="box-title">Today's Present</div>
-            <div class="box-text-2">
-              7
+            <div class="box-text-2">0
               <span class="text-gray-400">/10</span>
             </div>
           </div>
@@ -134,6 +134,7 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
@@ -152,7 +153,7 @@ img {
     height: auto;
 }
 
-header {
+.header {
     position: sticky;
     background: #fff;
     box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
@@ -176,16 +177,33 @@ nav {
 
 .container {
     position: relative;
+    z-index: 1;
 }
 
-.container:before {
+/* .container:before {
     content: '';
     position: absolute;
     width: 100%;
     height: 15rem;
-    /* background: rgb(0, 212, 80); */
     background-image: linear-gradient(rgb(0, 212, 80), rgb(0, 181, 68));
     z-index: -1;
+    transform: skewY(-5deg);
+} */
+
+.section {
+    width: 100%;
+    /* position: relative; */
+}
+
+.section:before {
+    content: '';
+    position: absolute;
+    top: -25%;
+    width: 100%;
+    height: 20rem;
+    /* background: rgb(0, 212, 80); */
+    background-image: linear-gradient(rgb(0, 212, 80), rgb(0, 181, 68));
+    z-index: 1;
     transform: skewY(-5deg);
 }
 
@@ -231,7 +249,7 @@ nav {
 
 .nav-btn {
     font-size: 10px;
-    padding: 10px 15px;
+    padding: 10px;
     border-radius: 10px;
     border: 0;
     cursor: pointer;
@@ -246,7 +264,7 @@ nav {
 }
 
 .nav-btn a {
-    color: #333!important;
+    color: #333 !important;
     text-decoration: none;
 }
 
@@ -305,6 +323,7 @@ nav {
 
 .col {
     width: 100%;
+    padding: 0 !important;
     margin: 1rem;
     -webkit-box-shadow: 0 0 4px 0 rgba(0,0,0,.05), 0 4px 24px 0 rgba(0,0,0,.1);
     box-shadow: 0 0 4px 0 rgba(0,0,0,.05), 0 4px 24px 0 rgba(0,0,0,.1);
@@ -490,7 +509,9 @@ nav {
     font-size: 23px;
     font-weight: bold;
     letter-spacing: 2px;
-    color: #666;
+    /* color: #666; */
+    color: #fff;
+    
 }
 
 .menu-list {
@@ -591,7 +612,7 @@ nav {
     letter-spacing: 1px;
     transition: all 0.5s ease;
     background-color: #c5c5c5;
-    color: #fff;
+    color: #fff !important;
     text-transform: uppercase;
     text-decoration: none;
 }
