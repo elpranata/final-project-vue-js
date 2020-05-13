@@ -69,27 +69,64 @@
                     <div class="table-list-status">{{item.status}}</div>
                   </td>
                   <td class="table-list">
-                    <a href="#" class="textbox-btn-2">Edit</a>
+                     <v-dialog v-model="dialog" persistent max-width="300px" max-height="300px">
+                     <template v-slot:activator="{ on }">
+                       <v-btn class="textbox-btn-2" v-on="on">Edit</v-btn>
+                     </template>
+                     <v-card height="50%">
+                       <v-card-title>
+                         <span class="headline">Edit Leave Request</span>
+                       </v-card-title>
+                       <v-card-text>
+                         <v-container>
+                           <v-row>
+                             <v-col cols="12" sm="12">
+                                    <v-select
+                                      :items="['Approved', 'Pending', 'Rejected']"
+                                      v-model="form.status"
+                                      label="Status"
+                                      required
+                                    ></v-select>
+                                </v-col>
+                           </v-row>
+                         </v-container>
+                       </v-card-text>
+                       <v-card-actions>
+                          <v-spacer></v-spacer>
+                          <v-btn color="blue darken-1" text @click="dialog = false">Close</v-btn>
+                          <v-btn color="blue darken-1" text @click="updateItem(item)">Save</v-btn>
+                      </v-card-actions>
+                     </v-card>
+                     </v-dialog>
                   </td>
                 </tr>
               </v-simple-table>
             </div>
           </div>
         </div>
-
     </div>
-
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import axios from "axios";
 export default {
      data() {
       return {
-          dialog:false
-
+          dialog:false,
+          form: {
+              id:"",
+              employee_name: "",
+              position: "",
+              department: "",
+              start_date: "",
+              end_date: "",
+              accepted_date: "",
+              information: "",
+              status: ""
+          }
       }
      },
      computed:{
@@ -103,7 +140,22 @@ export default {
      methods:{
        ...mapActions({
          fetchLeaveRequest:"fetchLeaveRequest"
-       })
+       }),
+       updateItem(item){
+             this.form.employee_name = item.employee_name
+             this.form.position = item.position
+             this.form.department =item.department
+             this.form.start_date = item.start_date
+             this.form.end_date = item.end_date
+             this.form.accepted_date = item.accepted_date
+             this.form.information = item.information
+            return axios.put('http://localhost:3000/leave_request/' + item.id , this.form).then(res => {
+            alert("Data Berhasil diupdate")
+            console.log(res);
+            }).catch((err) => {
+              console.log(err);
+            })
+       }
      },
      created(){
        this.fetchLeaveRequest();
