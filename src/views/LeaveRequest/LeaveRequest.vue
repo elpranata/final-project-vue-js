@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+  <div class="section">
+    <div class="container">
     <div class="main">
       <div class="menu">
         <ul class="menu-list">
@@ -126,7 +127,7 @@
             </div>
           </div>
         </div>
-
+      </div>
     </div>
 
     </div>

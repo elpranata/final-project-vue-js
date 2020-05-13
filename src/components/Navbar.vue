@@ -5,7 +5,7 @@
         <li class="logo">
           <a href="#">HR</a>
         </li>
-        <li class="nav-btn active">
+        <li class="nav-btn">
           <router-link to="/dashboard">DASHBOARD</router-link>
         </li>
         <li class="nav-btn">
@@ -38,3 +38,5 @@
     </nav>
   </div>
 </template>
+
+
