@@ -286,5 +286,10 @@
     "IT",
     "Marketing",
     "Bussiness"
+  ],
+  "request_status": [
+    "Approved",
+    "Pending",
+    "Rejected"
   ]
 }
