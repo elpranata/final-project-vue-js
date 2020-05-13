@@ -1,6 +1,5 @@
 <template>
-  <div class="section">
-    <div class="container">
+  <div class="container">
     <div class="main">
       <div class="menu">
         <ul class="menu-list">
@@ -63,7 +62,7 @@
                   <td class="table-list">
                      <v-dialog v-model="dialog" persistent max-width="300px" max-height="300px">
                      <template v-slot:activator="{ on }">
-                       <v-btn class="textbox-btn-2" v-on="on">Edit</v-btn>
+                       <v-btn small v-on="on">Edit</v-btn>
                      </template>
                      <v-card height="50%">
                        <v-card-title>
