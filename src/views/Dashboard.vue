@@ -49,7 +49,7 @@
           <div class="box">
             <div class="box-title">Today's Present</div>
             <div class="box-text-2">0
-              <span class="text-gray-400">/10</span>
+              <span class="text-gray-400">/00</span>
             </div>
           </div>
         </div>
@@ -101,7 +101,7 @@
                   </td>
                   <td class="table-list">Sebastian Ingrosso</td>
                   <td class="table-list">Engineer</td>
-                  <td class="table-list">1 day ago</td>
+                  <td class="table-list">0 day ago</td>
                 </tr>
                 <tr>
                   <td class="table-list">
@@ -113,7 +113,7 @@
                   </td>
                   <td class="table-list">Steve Angello</td>
                   <td class="table-list">Trainer</td>
-                  <td class="table-list">2 day ago</td>
+                  <td class="table-list">0 day ago</td>
                 </tr>
                 <tr>
                   <td class="table-list">
@@ -125,7 +125,7 @@
                   </td>
                   <td class="table-list">Axwell Alesso</td>
                   <td class="table-list">Journalist</td>
-                  <td class="table-list">3 day ago</td>
+                  <td class="table-list">0 day ago</td>
                 </tr>
               </table>
             </div>

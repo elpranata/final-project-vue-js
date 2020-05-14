@@ -4,7 +4,7 @@
     <div class="main">
       <div class="menu">
         <ul class="menu-list">
-          <div class="menu-title">Employee List</div>
+          <div class="menu-title">Edit Employee</div>
         </ul>
         <ul class="menu-list-right">
           <li class="menu-btn">
@@ -71,7 +71,7 @@
                     <div class="table-list-small">Research and Development</div>
                   </td>
                   <td class="table-list">
-                    <router-link to="/employeeedit" class="textbox-btn-2">Edit</router-link>
+                    <router-link to="/dashboard" class="textbox-btn-2">Edit</router-link>
                   </td>
                 </tr>
 
@@ -115,100 +115,5 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
-export default {
-    data(){
-        return{
-            activeIdx: 0,
-            filterName: '',
-            menu: [{
-                key: 'permanent',
-                name: 'Permanent'
-            },{
-                key: 'probation',
-                name: 'Probation'
-            },{
-                key: 'contract',
-                name: 'Contract'
-            },]
-        }
-    },
-    computed:{
-      ...mapGetters({
-        employee: 'employee/employee',
-        roleJob: 'employee/roleJob',
-        employeeStatus: 'employee/employeeStatus'
-      }),
-      getEmployee(){
-        return this.filterName === '' ? this.employee.filter(ob=>ob.status_employee === this.activeIdx) : this.employee.filter(ob=>ob.status_employee === this.activeIdx && ob.name.toLowerCase().includes(this.filterName.toLowerCase()));
-      }
-    },
-    methods:{
-        ...mapActions({
-            fetchEmployees : 'employee/fetchEmployees',
-            fetchRoleJob : 'employee/fetchRoleJob',
-            fetchEmployeeStatus : 'employee/fetchEmployeeStatus'
-        }),
-        getRoleJobPosition(d){
-            return this.roleJob.find(ob=>ob.id === d.role_job) ? this.roleJob.find(ob=>ob.id === d.role_job).position : ''
-        },
-        getRoleJobDivition(d){
-            return this.roleJob.find(ob=>ob.id === d.role_job) ? this.roleJob.find(ob=>ob.id === d.role_job).divition : ''
-        },
-        getEmployeeStatus(a){
-            return this.employeeStatus.find(ob=>ob.id == a.status_employee) ? this.employeeStatus.find(ob=>ob.id == a.status_employee).status : ''
-        },
-        prepareCsvData(a){
-            let fix = []
-            for(let i=0;i<a.length;i++){
-                let temp = {
-                    no: i+1,
-                    name: a[i].name,
-                    email: a[i].email,
-                    phone: a[i].phone,
-                    gender: a[i].gender,
-                    birth_date: a[i].birth_date,
-                    birth_place: a[i].birth_place,
-                    position: this.getRoleJobPosition(a[i]),
-                    divition: this.getRoleJobDivition(a[i]),
-                    status_employee: this.getEmployeeStatus(a[i]),
-                    password: a[i].password,
-                }
-                fix.push(temp);
-            }
-            return fix;
-        },
-        exportCsv(){
-            this.exportingProcess(this.prepareCsvData(this.getEmployee));
-        },
-        exportAllCSV(){
-            this.exportingProcess(this.prepareCsvData(this.employee));
-        },
-        exportingProcess(items){
-            const replacer = (key, value) => value === null ? '' : value // specify how you want to handle null values here
-            const header = Object.keys(items[0])
-            let csv = items.map(row => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','))
-            csv.unshift(header.join(','))
-            csv = csv.join('\r\n')
-            let blob = new Blob(['\ufeff' + csv], { 
-            type: 'text/csv;charset=utf-8;'
-            }); 
-            let dwldLink = document.createElement("a"); 
-            let url = URL.createObjectURL(blob); 
-            navigator.userAgent.indexOf('Chrome') == -1; 
-            dwldLink.setAttribute("href", url); 
-            dwldLink.setAttribute("download", "alltable.csv"); 
-            dwldLink.style.visibility = "hidden"; 
-            document.body.appendChild(dwldLink); 
-            dwldLink.click(); 
-            document.body.removeChild(dwldLink); 
-        }
-    },
-  created() {
-    this.fetchEmployees();
-    this.fetchRoleJob();
-    this.fetchEmployeeStatus();
-  }
-};
+export default {};
 </script>
-
