@@ -49,7 +49,7 @@
           <div class="box">
             <div class="box-title">Today's Present</div>
             <div class="box-text-2">0
-              <span class="text-gray-400">/10</span>
+              <span class="text-gray-400">/00</span>
             </div>
           </div>
         </div>
@@ -101,7 +101,7 @@
                   </td>
                   <td class="table-list">Sebastian Ingrosso</td>
                   <td class="table-list">Engineer</td>
-                  <td class="table-list">1 day ago</td>
+                  <td class="table-list">0 day ago</td>
                 </tr>
                 <tr>
                   <td class="table-list">
@@ -113,7 +113,7 @@
                   </td>
                   <td class="table-list">Steve Angello</td>
                   <td class="table-list">Trainer</td>
-                  <td class="table-list">2 day ago</td>
+                  <td class="table-list">0 day ago</td>
                 </tr>
                 <tr>
                   <td class="table-list">
@@ -125,7 +125,7 @@
                   </td>
                   <td class="table-list">Axwell Alesso</td>
                   <td class="table-list">Journalist</td>
-                  <td class="table-list">3 day ago</td>
+                  <td class="table-list">0 day ago</td>
                 </tr>
               </table>
             </div>
@@ -379,6 +379,21 @@ nav {
     margin-right: -10px;
 }
 
+.img-thumb-2 {
+    width: 7rem;
+    border-radius: 10px;
+    margin-right: -10px;
+}
+
+/* .avatar {
+    margin: auto;
+} */
+
+.choose-file {
+    display: flex;
+    padding-top: 10px;
+}
+
 .box-text-2 {
     font-size: 3rem;
     padding: 1rem;
@@ -394,6 +409,15 @@ nav {
 
 .table {
     width: 100%;
+    border-width: 1px;
+    border-collapse: collapse;
+    border-width: 1px;
+}
+
+.table-profile {
+    width: 100%;
+    margin: auto;
+    max-width: 460px;
     border-width: 1px;
     border-collapse: collapse;
     border-width: 1px;
@@ -495,6 +519,10 @@ nav {
     padding-bottom: 1rem;
 }
 
+.flex-col {
+    flex-flow: column;
+}
+
 .img-thumb-small {
     width: 2rem;
     border-radius: 100%;
@@ -584,6 +612,10 @@ nav {
     width: 100%;
     line-height: 1.5;
     margin-right: 1rem;
+}
+
+.input-col {
+    margin-bottom: 20px;
 }
 
 .textbox-btn {

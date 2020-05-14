@@ -17,7 +17,7 @@
             <a href="#">Import CSV</a>
           </li>
           <li class="menu-btn">
-            <a href="#">Add New Employee</a>
+            <router-link to="/employeeedit">Add New Employee</router-link>
           </li>
         </ul>
       </div>
@@ -71,7 +71,7 @@
                     <div class="table-list-small">Research and Development</div>
                   </td>
                   <td class="table-list">
-                    <a href="#" class="textbox-btn-2">Edit</a>
+                    <router-link to="/employeeedit" class="textbox-btn-2">Edit</router-link>
                   </td>
                 </tr>
 
