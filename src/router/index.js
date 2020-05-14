@@ -6,6 +6,7 @@ import Applicant from '../views/Applicant/Applicant.vue'
 import AddApplicant from '../views/Applicant/AddApplicant.vue'
 import EditApplicant from '../views/Applicant/EditApplicant.vue'
 import Employee from '../views/Employee.vue'
+import EmployeeEdit from '../views/EmployeeEdit.vue'
 import Event from '../views/Event/Event.vue';
 import Attendance from '../views/Attendance.vue'
 import Broadcast from '../views/Broadcast.vue'
@@ -42,6 +43,11 @@ const routes = [{
     path: '/employee',
     name: 'Employee',
     component: Employee
+  },
+  {
+    path: '/employeeedit',
+    name: 'EmployeeEdit',
+    component: EmployeeEdit
   },
   {
     path: '/attendance',

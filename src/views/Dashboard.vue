@@ -379,6 +379,21 @@ nav {
     margin-right: -10px;
 }
 
+.img-thumb-2 {
+    width: 7rem;
+    border-radius: 10px;
+    margin-right: -10px;
+}
+
+/* .avatar {
+    margin: auto;
+} */
+
+.choose-file {
+    display: flex;
+    padding-top: 10px;
+}
+
 .box-text-2 {
     font-size: 3rem;
     padding: 1rem;
@@ -394,6 +409,15 @@ nav {
 
 .table {
     width: 100%;
+    border-width: 1px;
+    border-collapse: collapse;
+    border-width: 1px;
+}
+
+.table-profile {
+    width: 100%;
+    margin: auto;
+    max-width: 460px;
     border-width: 1px;
     border-collapse: collapse;
     border-width: 1px;
@@ -495,6 +519,10 @@ nav {
     padding-bottom: 1rem;
 }
 
+.flex-col {
+    flex-flow: column;
+}
+
 .img-thumb-small {
     width: 2rem;
     border-radius: 100%;
@@ -584,6 +612,10 @@ nav {
     width: 100%;
     line-height: 1.5;
     margin-right: 1rem;
+}
+
+.input-col {
+    margin-bottom: 20px;
 }
 
 .textbox-btn {

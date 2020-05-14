@@ -17,7 +17,7 @@
             <a href="#">Import CSV</a>
           </li>
           <li class="menu-btn">
-            <a href="#">Add New Employee</a>
+            <router-link to="/employeeedit">Add New Employee</router-link>
           </li>
         </ul>
       </div>
